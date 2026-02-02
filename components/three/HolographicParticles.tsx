@@ -83,7 +83,7 @@ const vertexShader = `
     pos *= breathe;
 
     vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-    gl_PointSize = (2.0 + aRandom.y * 1.5) * (25.0 / -mvPosition.z);
+    gl_PointSize = (1.0 + aRandom.y * 0.8) * (18.0 / -mvPosition.z);
     gl_Position = projectionMatrix * mvPosition;
 
     // Color based on position - orange to cyan gradient
@@ -162,7 +162,7 @@ function generateCubeLattice(count: number, size: number): {
 }
 
 export function HolographicParticles({
-  count = 8000,
+  count = 25000,
   size = 4,
   noiseScale = 0.3,
   noiseStrength = 0.4,

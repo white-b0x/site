@@ -9,7 +9,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 import * as THREE from 'three';
 
 function Scene({ isMobile, prefersReducedMotion }: { isMobile: boolean; prefersReducedMotion: boolean }) {
-  const particleCount = isMobile ? 2000 : 8000;
+  const particleCount = isMobile ? 8000 : 30000;
 
   return (
     <>
