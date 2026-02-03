@@ -8,7 +8,15 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import * as THREE from 'three';
 
-function Scene({ isMobile, prefersReducedMotion }: { isMobile: boolean; prefersReducedMotion: boolean }) {
+interface SceneProps {
+  isMobile: boolean;
+  prefersReducedMotion: boolean;
+  mode: number;
+  color1: THREE.Color;
+  color2: THREE.Color;
+}
+
+function Scene({ isMobile, prefersReducedMotion, mode, color1, color2 }: SceneProps) {
   const particleCount = isMobile ? 8000 : 30000;
 
   return (
@@ -16,9 +24,9 @@ function Scene({ isMobile, prefersReducedMotion }: { isMobile: boolean; prefersR
       <fog attach="fog" args={['#030508', 8, 25]} />
       <HolographicParticles
         count={particleCount}
-        size={4}
-        noiseScale={0.3}
-        noiseStrength={prefersReducedMotion ? 0.1 : 0.4}
+        mode={mode}
+        color1={color1}
+        color2={color2}
       />
       {!isMobile && !prefersReducedMotion && (
         <PostProcessing bloomIntensity={1.2} enableChromaticAberration />
@@ -27,9 +35,23 @@ function Scene({ isMobile, prefersReducedMotion }: { isMobile: boolean; prefersR
   );
 }
 
-export default function CubeScene() {
+export interface CubeSceneProps {
+  mode?: number;
+  colorPalette?: number;
+}
+
+// Color palettes matching the concept
+const palettes = [
+  { c1: new THREE.Color('#818cf8'), c2: new THREE.Color('#2dd4bf') }, // Indigo / Teal
+  { c1: new THREE.Color('#f472b6'), c2: new THREE.Color('#60a5fa') }, // Pink / Blue
+  { c1: new THREE.Color('#fb923c'), c2: new THREE.Color('#e11d48') }, // Orange / Rose
+];
+
+export default function CubeScene({ mode = 2, colorPalette = 0 }: CubeSceneProps) {
   const prefersReducedMotion = useReducedMotion();
   const isMobile = useMediaQuery('(max-width: 768px)');
+
+  const { c1, c2 } = palettes[colorPalette] || palettes[0];
 
   return (
     <Canvas
@@ -45,7 +67,13 @@ export default function CubeScene() {
     >
       <color attach="background" args={['#030508']} />
       <Suspense fallback={null}>
-        <Scene isMobile={isMobile} prefersReducedMotion={prefersReducedMotion} />
+        <Scene
+          isMobile={isMobile}
+          prefersReducedMotion={prefersReducedMotion}
+          mode={mode}
+          color1={c1}
+          color2={c2}
+        />
       </Suspense>
     </Canvas>
   );

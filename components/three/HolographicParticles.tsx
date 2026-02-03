@@ -4,16 +4,20 @@ import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-const vertexShader = `
+// Particle count passed as a define to shader
+const createVertexShader = (particleCount: number) => `
   uniform float uTime;
-  uniform float uNoiseScale;
-  uniform float uNoiseStrength;
+  uniform float uMode;
+  uniform vec3 uColor1;
+  uniform vec3 uColor2;
 
   attribute float aIndex;
   attribute vec3 aRandom;
 
   varying vec3 vColor;
   varying float vAlpha;
+
+  #define PARTICLE_COUNT ${particleCount}.0
 
   // Simplex noise function
   vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -64,37 +68,100 @@ const vertexShader = `
     return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
   }
 
+  // Shape functions
+  vec3 getPosSphere(float idx) {
+    float phi = acos(-1.0 + (2.0 * idx) / PARTICLE_COUNT);
+    float theta = sqrt(PARTICLE_COUNT * 3.1415926) * phi;
+    float r = 3.0 + aRandom.x * 0.5;
+    return vec3(r * sin(phi) * cos(theta), r * sin(phi) * sin(theta), r * cos(phi));
+  }
+
+  vec3 getPosTorus(float idx) {
+    float t = idx * 0.1;
+    float r = 2.5 + aRandom.y * 0.8;
+    float tube = 0.8 + aRandom.x * 0.5;
+    float angle = (idx / PARTICLE_COUNT) * 6.28 * 15.0;
+    return vec3(
+      (r + tube * cos(angle)) * cos(t),
+      (r + tube * cos(angle)) * sin(t),
+      tube * sin(angle)
+    );
+  }
+
+  vec3 getPosLattice(float idx) {
+    float size = 4.0;
+    float step = pow(PARTICLE_COUNT, 1.0/3.0);
+    float x = mod(idx, step);
+    float y = mod(floor(idx/step), step);
+    float z = floor(idx/(step*step));
+    return (vec3(x, y, z) / step - 0.5) * size;
+  }
+
+  vec3 getPosVortex(float idx) {
+    float r = (idx / PARTICLE_COUNT) * 4.0;
+    float ang = r * 4.0;
+    float h = (aRandom.x - 0.5) * 3.0 * (1.0 - r/5.0);
+    return vec3(r * cos(ang), h, r * sin(ang));
+  }
+
   void main() {
-    vec3 pos = position;
     float t = uTime * 0.15;
+    float idx = aIndex;
 
-    // Add noise displacement for organic movement
-    vec3 noiseInput = pos * uNoiseScale + t;
-    vec3 displacement = vec3(
-      snoise(noiseInput),
-      snoise(noiseInput + 100.0),
-      snoise(noiseInput + 200.0)
-    ) * uNoiseStrength;
+    // Get positions for all shapes
+    vec3 pSphere = getPosSphere(idx);
+    vec3 pTorus = getPosTorus(idx);
+    vec3 pLattice = getPosLattice(idx);
+    vec3 pVortex = getPosVortex(idx);
 
-    pos += displacement;
+    // Add noise for organic movement
+    vec3 noiseOffset = vec3(
+      snoise(vec3(idx * 0.01, t * 0.2, 0.0)),
+      snoise(vec3(idx * 0.01, 0.0, t * 0.2)),
+      snoise(vec3(0.0, idx * 0.01, t * 0.2))
+    );
 
-    // Subtle breathing effect
-    float breathe = sin(uTime * 0.5 + aIndex * 0.01) * 0.1 + 1.0;
+    pSphere += noiseOffset * 1.0;
+    pTorus += noiseOffset * 0.5;
+    pLattice += noiseOffset * 0.3;
+    pVortex += noiseOffset * 0.5;
+
+    // Animate torus rotation
+    float c = cos(t * 0.3);
+    float s = sin(t * 0.3);
+    pTorus.xy = mat2(c, -s, s, c) * pTorus.xy;
+    pTorus.xz = mat2(c, -s, s, c) * pTorus.xz;
+
+    // Animate vortex spin
+    float va = t * 1.5 - length(pVortex.xz) * 0.3;
+    float vc = cos(va);
+    float vs = sin(va);
+    pVortex.xz = mat2(vc, -vs, vs, vc) * pVortex.xz;
+
+    // Interpolate between shapes based on mode
+    vec3 pos;
+    float m = uMode;
+    if (m <= 0.0) pos = pSphere;
+    else if (m <= 1.0) pos = mix(pSphere, pTorus, m);
+    else if (m <= 2.0) pos = mix(pTorus, pLattice, m - 1.0);
+    else if (m <= 3.0) pos = mix(pLattice, pVortex, m - 2.0);
+    else pos = pVortex;
+
+    // Subtle breathing
+    float breathe = sin(uTime * 0.5 + idx * 0.001) * 0.05 + 1.0;
     pos *= breathe;
 
     vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
     gl_PointSize = (1.0 + aRandom.y * 0.8) * (18.0 / -mvPosition.z);
     gl_Position = projectionMatrix * mvPosition;
 
-    // Color based on position - orange to cyan gradient
+    // Color gradient based on position
     float colorMix = (pos.x + pos.y + pos.z) / 6.0 + 0.5;
-    vec3 orange = vec3(0.976, 0.451, 0.086); // #f97316
-    vec3 cyan = vec3(0.220, 0.741, 0.973);   // #38bdf8
-    vColor = mix(orange, cyan, colorMix);
+    vColor = mix(uColor1, uColor2, smoothstep(0.0, 1.0, colorMix));
 
-    // Alpha based on depth and randomness
+    // Alpha based on depth
     float depthFade = smoothstep(50.0, 5.0, -mvPosition.z);
-    vAlpha = depthFade * (0.3 + aRandom.z * 0.5);
+    vAlpha = depthFade * (0.25 + aRandom.z * 0.5);
   }
 `;
 
@@ -103,7 +170,6 @@ const fragmentShader = `
   varying float vAlpha;
 
   void main() {
-    // Soft circular particle with glow
     vec2 center = gl_PointCoord - 0.5;
     float dist = length(center);
     if (dist > 0.5) discard;
@@ -115,15 +181,15 @@ const fragmentShader = `
   }
 `;
 
-interface HolographicParticlesProps {
+export interface HolographicParticlesProps {
   count?: number;
-  size?: number;
-  noiseScale?: number;
-  noiseStrength?: number;
+  mode?: number;
+  color1?: THREE.Color;
+  color2?: THREE.Color;
 }
 
-// Generate cube lattice positions deterministically
-function generateCubeLattice(count: number, size: number): {
+// Generate particle data
+function generateParticleData(count: number): {
   positions: Float32Array;
   indices: Float32Array;
   randoms: Float32Array;
@@ -132,63 +198,75 @@ function generateCubeLattice(count: number, size: number): {
   const indices = new Float32Array(count);
   const randoms = new Float32Array(count * 3);
 
-  // Calculate grid dimensions for cube
-  const gridSize = Math.ceil(Math.pow(count, 1/3));
-  const spacing = size / gridSize;
-  const halfSize = size / 2;
+  for (let i = 0; i < count; i++) {
+    // Initial positions (will be overridden by shader)
+    positions[i * 3] = 0;
+    positions[i * 3 + 1] = 0;
+    positions[i * 3 + 2] = 0;
 
-  let idx = 0;
-  for (let x = 0; x < gridSize && idx < count; x++) {
-    for (let y = 0; y < gridSize && idx < count; y++) {
-      for (let z = 0; z < gridSize && idx < count; z++) {
-        positions[idx * 3] = (x * spacing) - halfSize + spacing/2;
-        positions[idx * 3 + 1] = (y * spacing) - halfSize + spacing/2;
-        positions[idx * 3 + 2] = (z * spacing) - halfSize + spacing/2;
+    indices[i] = i;
 
-        indices[idx] = idx;
-
-        // Seeded random for deterministic results
-        const seed = idx * 12345;
-        randoms[idx * 3] = (Math.sin(seed) * 10000) % 1;
-        randoms[idx * 3 + 1] = (Math.sin(seed + 1) * 10000) % 1;
-        randoms[idx * 3 + 2] = (Math.sin(seed + 2) * 10000) % 1;
-
-        idx++;
-      }
-    }
+    // Seeded random
+    const seed = i * 12345;
+    randoms[i * 3] = Math.abs((Math.sin(seed) * 10000) % 1);
+    randoms[i * 3 + 1] = Math.abs((Math.sin(seed + 1) * 10000) % 1);
+    randoms[i * 3 + 2] = Math.abs((Math.sin(seed + 2) * 10000) % 1);
   }
 
   return { positions, indices, randoms };
 }
 
+// Default colors
+const defaultColor1 = new THREE.Color('#818cf8'); // Indigo
+const defaultColor2 = new THREE.Color('#2dd4bf'); // Teal
+
+// Create uniforms object - stable reference, values mutated in useFrame
+function createUniforms(mode: number, color1: THREE.Color, color2: THREE.Color) {
+  return {
+    uTime: { value: 0 },
+    uMode: { value: mode },
+    uColor1: { value: color1.clone() },
+    uColor2: { value: color2.clone() },
+  };
+}
+
 export function HolographicParticles({
-  count = 25000,
-  size = 4,
-  noiseScale = 0.3,
-  noiseStrength = 0.4,
+  count = 30000,
+  mode = 2, // Default to Lattice (cube)
+  color1 = defaultColor1,
+  color2 = defaultColor2,
 }: HolographicParticlesProps) {
   const pointsRef = useRef<THREE.Points>(null);
   const materialRef = useRef<THREE.ShaderMaterial>(null);
+  const currentMode = useRef(mode);
 
   const { positions, indices, randoms } = useMemo(
-    () => generateCubeLattice(count, size),
-    [count, size]
+    () => generateParticleData(count),
+    [count]
   );
 
-  const uniforms = useMemo(() => ({
-    uTime: { value: 0 },
-    uNoiseScale: { value: noiseScale },
-    uNoiseStrength: { value: noiseStrength },
-  }), [noiseScale, noiseStrength]);
+  const vertexShader = useMemo(() => createVertexShader(count), [count]);
+
+  // Create uniforms once, stable reference
+  const uniforms = useMemo(
+    () => createUniforms(mode, color1, color2),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [count] // Only recreate when count changes (shader recompiles)
+  );
 
   useFrame((state) => {
-    if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
-    }
+    uniforms.uTime.value = state.clock.elapsedTime;
+
+    // Smooth mode transition
+    currentMode.current += (mode - currentMode.current) * 0.05;
+    uniforms.uMode.value = currentMode.current;
+
+    // Smooth color transition
+    uniforms.uColor1.value.lerp(color1, 0.05);
+    uniforms.uColor2.value.lerp(color2, 0.05);
+
     if (pointsRef.current) {
-      // Slow rotation
-      pointsRef.current.rotation.y = state.clock.elapsedTime * 0.05;
-      pointsRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.03) * 0.1;
+      pointsRef.current.rotation.y = state.clock.elapsedTime * 0.03;
     }
   });
 
