@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { RoundedBox } from '@react-three/drei';
 import * as THREE from 'three';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
@@ -15,7 +15,6 @@ interface GlassCubeProps {
 export function GlassCube({ scrollProgress = 0 }: GlassCubeProps) {
   const groupRef = useRef<THREE.Group>(null);
   const prefersReducedMotion = useReducedMotion();
-  const { pointer } = useThree();
 
   // Scroll-driven transforms
   const heroProgress = Math.min(scrollProgress / 0.3, 1);
@@ -33,17 +32,11 @@ export function GlassCube({ scrollProgress = 0 }: GlassCubeProps) {
       return;
     }
 
-    // Auto-rotation on all axes at different speeds
+    // Auto-rotation on all axes
     const baseSpeed = 0.08 + heroProgress * 0.04;
     groupRef.current.rotation.x += delta * baseSpeed * 0.7;
     groupRef.current.rotation.y += delta * baseSpeed;
     groupRef.current.rotation.z += delta * baseSpeed * 0.4;
-
-    // Mouse-reactive tilt (additive, smooth lerp)
-    const mouseRotX = pointer.y * 0.15;
-    const mouseRotZ = pointer.x * -0.08;
-    groupRef.current.rotation.x += (mouseRotX - groupRef.current.rotation.x) * 0.01;
-    groupRef.current.rotation.z += (mouseRotZ - groupRef.current.rotation.z) * 0.01;
 
     // Breathing scale + scroll scale
     const breathe = targetScale + Math.sin(t * 0.6) * 0.015;
