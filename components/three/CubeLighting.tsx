@@ -23,7 +23,7 @@ export function CubeLighting() {
         ref={keyLightRef}
         position={[3, 5, 2]}
         intensity={2.0}
-        color="#ffa040"
+        color="#ffe0b0"
       />
 
       {/* Cool fill light — from below-left, blue contrast against warm blobs */}
