@@ -71,7 +71,7 @@ export function TopoBackground({ quality }: TopoBackgroundProps) {
   const uniforms = useMemo(
     () => ({
       uTime: { value: 0 },
-      uOpacity: { value: 0.15 },
+      uOpacity: { value: 0.20 },
     }),
     [],
   );
