@@ -1,0 +1,21 @@
+# whiteb0x.com
+
+> A development studio specializing in full-stack engineering, web applications, and blockchain protocols.
+
+## About
+
+white b0x inc. is a development studio. We build software that matters — from web applications to blockchain protocols. Our work spans Web2 and Web3, delivering cutting-edge solutions with a focus on performance, design, and reliability.
+
+## Services
+
+- Full-stack web application development
+- Blockchain protocol engineering
+- Smart contract development and auditing
+- UI/UX design and interactive experiences
+- DevOps and infrastructure
+
+## Contact
+
+- Email: contact@whiteb0x.com
+- GitHub: https://github.com/white-b0x
+- Website: https://whiteb0x.com

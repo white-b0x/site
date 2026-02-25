@@ -26,6 +26,7 @@ pnpm dev
 | `pnpm start` | Serve production build |
 | `pnpm lint` | Run ESLint |
 | `pnpm typecheck` | Run TypeScript checks |
+| `pnpm check:versions` | Print runtime and dependency versions |
 
 ## Structure
 
@@ -35,14 +36,25 @@ app/
   layout.tsx            # Root layout with fonts and metadata
   globals.css           # Global styles + hero text animation
   api/contact/          # Contact form API route
+  icon.svg              # Favicon (isometric cube SVG)
+  opengraph-image.tsx   # OG social image (generated at build)
+  sitemap.ts            # XML sitemap
+  robots.ts             # Robots.txt
 
 components/
   sections/             # Page sections (Hero, About, Contact, Footer)
-  three/                # R3F components (GlassCube, TopoBackground, Lighting, PostFX)
+  three/                # R3F components (GlassCubeScene, GlassCube, TopoBackground, CubeLighting, PostFX)
   ui/                   # Shared UI (Button, GlassCard, ScrollIndicator)
 
 hooks/
   useDeviceCapability   # Quality tier detection (high/medium/low)
   useScrollProgress     # Normalized scroll position (0→1)
   useReducedMotion      # Prefers-reduced-motion check
+  useMediaQuery         # Window.matchMedia wrapper
+
+scripts/
+  print-versions.mjs    # Debug script for dependency versions
+
+public/
+  llms.txt              # LLM crawler info
 ```
