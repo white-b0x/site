@@ -3,44 +3,44 @@
 import {
   EffectComposer,
   Bloom,
-  Vignette,
   ChromaticAberration,
+  Vignette,
   Noise,
 } from '@react-three/postprocessing';
 import { BlendFunction } from 'postprocessing';
 import { Vector2 } from 'three';
 
-interface PostProcessingProps {
-  bloomIntensity?: number;
-  enableChromaticAberration?: boolean;
-}
-
-export function PostProcessing({
-  bloomIntensity = 1.2,
-  enableChromaticAberration = true,
-}: PostProcessingProps) {
-  const caOffset = enableChromaticAberration ? 0.002 : 0;
-
+export function ScenePostProcessing() {
   return (
     <EffectComposer>
+      {/* Bloom: warm blob emissive glow */}
       <Bloom
         luminanceThreshold={0.1}
         luminanceSmoothing={0.9}
-        intensity={bloomIntensity}
+        intensity={1.5}
         mipmapBlur
       />
+
+      {/* Chromatic Aberration: prismatic edges */}
       <ChromaticAberration
         blendFunction={BlendFunction.NORMAL}
-        offset={new Vector2(caOffset, caOffset)}
+        offset={new Vector2(0.0015, 0.0015)}
         radialModulation
         modulationOffset={0.5}
       />
+
+      {/* Subtle film grain */}
       <Noise
         premultiply
         blendFunction={BlendFunction.ADD}
-        opacity={0.02}
       />
-      <Vignette eskil={false} offset={0.1} darkness={0.6} />
+
+      {/* Vignette: draws eye to center */}
+      <Vignette
+        eskil={false}
+        offset={0.15}
+        darkness={0.5}
+      />
     </EffectComposer>
   );
 }
