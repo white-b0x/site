@@ -7,7 +7,62 @@ import * as THREE from 'three';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import type { QualityTier } from '@/hooks/useDeviceCapability';
 
-function GridOverlay() {
+const gridVertexShader = /* glsl */ `
+  varying vec3 vPosition;
+
+  void main() {
+    vPosition = position;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`;
+
+const gridFragmentShader = /* glsl */ `
+  uniform float uTime;
+  uniform float uReducedMotion;
+  varying vec3 vPosition;
+
+  vec3 hsl2rgb(float h, float s, float l) {
+    vec3 rgb = clamp(abs(mod(h * 6.0 + vec3(0.0, 4.0, 2.0), 6.0) - 3.0) - 1.0, 0.0, 1.0);
+    return l + s * (rgb - 0.5) * (1.0 - abs(2.0 * l - 1.0));
+  }
+
+  void main() {
+    // Diagonal spatial offset for rainbow wave across all faces
+    float spatialOffset = dot(vPosition, vec3(0.15, 0.12, 0.1));
+
+    // Hue cycling: full spectrum in ~12.5s, frozen at cyan when reduced motion
+    float hue = mix(
+      fract(uTime * 0.08 + spatialOffset),
+      0.55,
+      uReducedMotion
+    );
+
+    // Breathing intensity: ~5.2s pulse, constant when reduced motion
+    float breathe = mix(
+      0.5 + 0.5 * sin(uTime * 0.4),
+      0.6,
+      uReducedMotion
+    );
+
+    // Wider range: dim at 0.05, bright at 1.0
+    float intensity = 0.05 + breathe * 0.95;
+
+    vec3 color = hsl2rgb(hue, 0.85, 0.55);
+
+    // Higher HDR peak for stronger bloom pulse
+    vec3 finalColor = color * intensity * 3.5;
+
+    gl_FragColor = vec4(finalColor, 0.85);
+  }
+`;
+
+interface GridOverlayProps {
+  prefersReducedMotion: boolean;
+}
+
+function GridOverlay({ prefersReducedMotion }: GridOverlayProps) {
+  const materialRef = useRef<THREE.ShaderMaterial>(null);
+
   const geometry = useMemo(() => {
     const s = 3.52; // slightly larger than cube to avoid z-fighting
     const h = s / 2;
@@ -43,9 +98,31 @@ function GridOverlay() {
     return geo;
   }, []);
 
+  const uniforms = useMemo(
+    () => ({
+      uTime: { value: 0 },
+      uReducedMotion: { value: 0 },
+    }),
+    [],
+  );
+
+  useFrame((state) => {
+    if (materialRef.current) {
+      materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
+      materialRef.current.uniforms.uReducedMotion.value = prefersReducedMotion ? 1.0 : 0.0;
+    }
+  });
+
   return (
     <lineSegments geometry={geometry}>
-      <lineBasicMaterial color="#ffffff" transparent opacity={0.12} depthWrite={false} />
+      <shaderMaterial
+        ref={materialRef}
+        vertexShader={gridVertexShader}
+        fragmentShader={gridFragmentShader}
+        uniforms={uniforms}
+        transparent
+        depthWrite={false}
+      />
     </lineSegments>
   );
 }
@@ -101,7 +178,7 @@ export function GlassCube({ scrollProgress = 0 }: GlassCubeProps) {
         />
       </RoundedBox>
       {/* Grid lines overlay — clean edges only (no diagonals) */}
-      <GridOverlay />
+      <GridOverlay prefersReducedMotion={prefersReducedMotion} />
     </group>
   );
 }

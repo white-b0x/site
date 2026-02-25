@@ -17,7 +17,7 @@ export function ScenePostProcessing() {
       <Bloom
         luminanceThreshold={0.1}
         luminanceSmoothing={0.9}
-        intensity={1.5}
+        intensity={2.5}
         mipmapBlur
       />
 
