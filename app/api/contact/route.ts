@@ -6,6 +6,7 @@ const contactSchema = z.object({
   name: z.string().min(1, 'Name is required').max(100),
   email: z.string().email('Invalid email address'),
   message: z.string().min(1, 'Message is required').max(5000),
+  website: z.string().optional(),
 });
 
 export async function POST(request: Request) {
@@ -20,7 +21,12 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, message } = result.data;
+    const { name, email, message, website } = result.data;
+
+    // Honeypot: bots fill the hidden "website" field, humans don't see it
+    if (website) {
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
 
     const apiKey = process.env.RESEND_API_KEY;
     const toEmail = process.env.CONTACT_TO_EMAIL;
