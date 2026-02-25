@@ -8,8 +8,6 @@ import { GlassCard } from '@/components/ui/GlassCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
-
 interface FormErrors {
   name?: string;
   email?: string;
@@ -44,8 +42,7 @@ const errorStyles = 'mt-1.5 text-xs text-red-400/80';
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [status, setStatus] = useState<FormStatus>('idle');
-  const [serverError, setServerError] = useState('');
+  const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [form, setForm] = useState({ name: '', email: '', message: '', website: '' });
@@ -82,10 +79,9 @@ export function ContactSection() {
     setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    // Validate all fields
     const newErrors: FormErrors = {
       name: validateField('name', form.name),
       email: validateField('email', form.email),
@@ -96,26 +92,15 @@ export function ContactSection() {
 
     if (Object.values(newErrors).some(Boolean)) return;
 
-    setStatus('submitting');
-    setServerError('');
+    // Honeypot: bots fill the hidden field, humans don't
+    if (form.website) return;
 
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || 'Failed to send message');
-      }
-
-      setStatus('success');
-    } catch (err) {
-      setServerError(err instanceof Error ? err.message : 'Something went wrong');
-      setStatus('error');
-    }
+    const subject = encodeURIComponent(`whiteb0x inquiry from ${form.name}`);
+    const body = encodeURIComponent(
+      `${form.message}\n\n—\n${form.name}\n${form.email}`,
+    );
+    window.location.href = `mailto:contact@whiteb0x.com?subject=${subject}&body=${body}`;
+    setSent(true);
   }
 
   return (
@@ -129,12 +114,19 @@ export function ContactSection() {
           Have a project in mind? We&apos;d love to hear about it.
         </p>
 
-        {status === 'success' ? (
+        {sent ? (
           <GlassCard className="py-12 px-8 text-center">
-            <p className="text-lg font-medium text-white/90">Message sent.</p>
+            <p className="text-lg font-medium text-white/90">Opening your email client...</p>
             <p className="mt-2 text-sm text-white/50">
-              We&apos;ll be in touch soon.
+              Your message has been pre-filled. Just hit send.
             </p>
+            <button
+              type="button"
+              onClick={() => setSent(false)}
+              className="mt-6 text-sm text-white/40 transition-colors hover:text-white/60"
+            >
+              Back to form
+            </button>
           </GlassCard>
         ) : (
           <GlassCard className="py-8 px-6 md:px-8">
@@ -204,16 +196,8 @@ export function ContactSection() {
                 {errors.message && <p id="message-error" className={errorStyles}>{errors.message}</p>}
               </div>
 
-              {serverError && (
-                <p className="text-sm text-red-400/80">{serverError}</p>
-              )}
-
-              <Button
-                type="submit"
-                disabled={status === 'submitting'}
-                className="w-full"
-              >
-                {status === 'submitting' ? 'Sending...' : 'Send Message'}
+              <Button type="submit" className="w-full">
+                Send Message
               </Button>
             </form>
           </GlassCard>
