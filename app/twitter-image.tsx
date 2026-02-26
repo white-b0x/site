@@ -14,50 +14,175 @@ export default function TwitterImage() {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#030508',
+          justifyContent: 'space-between',
+          backgroundColor: '#0a0e14',
           fontFamily: 'system-ui, sans-serif',
+          position: 'relative',
+          overflow: 'hidden',
+          padding: '64px 80px',
         }}
       >
-        <svg
-          width="160"
-          height="160"
-          viewBox="0 0 32 32"
-          fill="none"
-          style={{ marginBottom: 40 }}
-        >
-          <path d="M16 4 L28 11 L16 18 L4 11 Z" fill="#e0e0e0" opacity="0.9" />
-          <path d="M4 11 L16 18 L16 28 L4 21 Z" fill="#888888" opacity="0.85" />
-          <path d="M16 18 L28 11 L28 21 L16 28 Z" fill="#aaaaaa" opacity="0.85" />
-          <path
-            d="M16 4 L28 11 L16 18 L4 11 Z M4 11 L4 21 L16 28 L28 21 L28 11"
-            stroke="white"
-            strokeWidth="0.5"
-            fill="none"
-            opacity="0.4"
+        {/* Topo wave lines — rainbow wireframe background */}
+        {[
+          { y: 420, c: '#40c040' },
+          { y: 440, c: '#80d040' },
+          { y: 460, c: '#ffd700' },
+          { y: 480, c: '#ffa040' },
+          { y: 500, c: '#ff8c00' },
+          { y: 520, c: '#ff4040' },
+          { y: 540, c: '#ff60a0' },
+          { y: 560, c: '#c060ff' },
+          { y: 580, c: '#00d4ff' },
+          { y: 600, c: '#4080ff' },
+        ].map((l) => (
+          <div
+            key={l.y}
+            style={{
+              position: 'absolute',
+              top: l.y,
+              left: 0,
+              width: '100%',
+              height: 1,
+              backgroundColor: l.c,
+              opacity: 0.15,
+            }}
           />
-        </svg>
-        <div
-          style={{
-            fontSize: 64,
-            fontWeight: 200,
-            color: 'rgba(255, 255, 255, 0.9)',
-            letterSpacing: '0.1em',
-            marginBottom: 16,
-          }}
-        >
-          white b0x
+        ))}
+
+        {/* Top section: icon + brand */}
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {/* Icon + brand name row */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+            {/* Glass cube in rounded container */}
+            <div
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: 20,
+                backgroundColor: '#151a22',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <svg
+                width="64"
+                height="64"
+                viewBox="0 0 32 32"
+                fill="none"
+              >
+                <path
+                  d="M16 5 L27 11.5 L16 18 L5 11.5Z"
+                  fill="white"
+                  opacity="0.18"
+                />
+                <path
+                  d="M5 11.5 L16 18 L16 27 L5 20.5Z"
+                  fill="white"
+                  opacity="0.08"
+                />
+                <path
+                  d="M16 18 L27 11.5 L27 20.5 L16 27Z"
+                  fill="white"
+                  opacity="0.12"
+                />
+                <path
+                  d="M16 5 L27 11.5 L16 18 L5 11.5Z M5 11.5 L5 20.5 L16 27 L27 20.5 L27 11.5 M16 18 L16 27"
+                  stroke="rgba(255,255,255,0.55)"
+                  strokeWidth="0.5"
+                  fill="none"
+                />
+                <path
+                  d="M16 5 L27 11.5 L16 18 L5 11.5Z"
+                  stroke="rgba(255,255,255,0.25)"
+                  strokeWidth="0.3"
+                  fill="none"
+                />
+              </svg>
+            </div>
+
+            {/* Brand text */}
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div
+                style={{
+                  fontSize: 52,
+                  fontWeight: 600,
+                  color: 'rgba(255, 255, 255, 0.92)',
+                  letterSpacing: '-0.01em',
+                  lineHeight: 1.1,
+                }}
+              >
+                whiteb0x
+              </div>
+              <div
+                style={{
+                  fontSize: 22,
+                  fontWeight: 400,
+                  color: 'rgba(255, 255, 255, 0.45)',
+                  marginTop: 6,
+                }}
+              >
+                A Development Studio
+              </div>
+            </div>
+          </div>
+
+          {/* Feature dots */}
+          <div
+            style={{
+              display: 'flex',
+              fontSize: 16,
+              fontWeight: 400,
+              color: 'rgba(255, 255, 255, 0.30)',
+              marginTop: 24,
+              gap: 8,
+            }}
+          >
+            <span>Web</span>
+            <span>·</span>
+            <span>Blockchain</span>
+            <span>·</span>
+            <span>Full-Stack</span>
+          </div>
         </div>
-        <div
-          style={{
-            fontSize: 24,
-            fontWeight: 400,
-            color: 'rgba(255, 255, 255, 0.4)',
-            letterSpacing: '0.05em',
-          }}
-        >
-          A Development Studio
+
+        {/* CTA button — solid white */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 240,
+              paddingTop: 14,
+              paddingBottom: 14,
+              borderRadius: 10,
+              backgroundColor: 'rgba(255, 255, 255, 0.92)',
+            }}
+          >
+            <span
+              style={{
+                fontSize: 16,
+                fontWeight: 600,
+                color: '#0a0e14',
+                letterSpacing: '0.01em',
+              }}
+            >
+              Let&apos;s Build Something
+            </span>
+          </div>
+
+          {/* URL */}
+          <div
+            style={{
+              fontSize: 14,
+              fontWeight: 400,
+              color: 'rgba(255, 255, 255, 0.25)',
+            }}
+          >
+            whiteb0x.com
+          </div>
         </div>
       </div>
     ),

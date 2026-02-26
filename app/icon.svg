@@ -1,11 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <!-- Isometric cube — dark chrome aesthetic matching the site's hero -->
-  <!-- Top face -->
-  <path d="M16 4 L28 11 L16 18 L4 11 Z" fill="#e0e0e0" opacity="0.9"/>
-  <!-- Left face -->
-  <path d="M4 11 L16 18 L16 28 L4 21 Z" fill="#888888" opacity="0.85"/>
-  <!-- Right face -->
-  <path d="M16 18 L28 11 L28 21 L16 28 Z" fill="#aaaaaa" opacity="0.85"/>
-  <!-- Edge highlights -->
-  <path d="M16 4 L28 11 L16 18 L4 11 Z M4 11 L4 21 L16 28 L28 21 L28 11" stroke="white" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <!-- Dark rounded background -->
+  <rect width="32" height="32" rx="7" fill="#111111"/>
+
+  <!-- Translucent glass cube faces -->
+  <path d="M16 5 L27 11.5 L16 18 L5 11.5Z" fill="white" opacity="0.18"/>
+  <path d="M5 11.5 L16 18 L16 27 L5 20.5Z" fill="white" opacity="0.08"/>
+  <path d="M16 18 L27 11.5 L27 20.5 L16 27Z" fill="white" opacity="0.12"/>
+
+  <!-- Glass edge highlights -->
+  <path d="M16 5 L27 11.5 L16 18 L5 11.5Z M5 11.5 L5 20.5 L16 27 L27 20.5 L27 11.5 M16 18 L16 27"
+        stroke="rgba(255,255,255,0.55)" stroke-width="0.5" fill="none"/>
+
+  <!-- Top face specular glint -->
+  <path d="M16 5 L27 11.5 L16 18 L5 11.5Z"
+        stroke="rgba(255,255,255,0.25)" stroke-width="0.3" fill="none"/>
 </svg>

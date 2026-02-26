@@ -46,6 +46,33 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: "https://whiteb0x.com",
+  },
+  other: {
+    "color-scheme": "dark",
+  },
+  formatDetection: {
+    telephone: false,
+    email: false,
+  },
+  appleWebApp: {
+    capable: true,
+    title: "whiteb0x",
+    statusBarStyle: "black-translucent",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "white b0x inc.",
+  url: "https://whiteb0x.com",
+  logo: "https://whiteb0x.com/icon.svg",
+  description:
+    "Full-stack engineering from web applications to blockchain protocols.",
+  email: "contact@whiteb0x.com",
+  sameAs: ["https://github.com/white-b0x"],
 };
 
 export default function RootLayout({
@@ -55,6 +82,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="theme-color" content="#030508" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
