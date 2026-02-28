@@ -5,7 +5,7 @@ import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center pointer-events-none">
+    <section className="relative flex min-h-[75vh] md:min-h-screen flex-col items-center justify-center pointer-events-none">
       <motion.div
         className="text-center"
         initial={{ opacity: 0, y: 20 }}

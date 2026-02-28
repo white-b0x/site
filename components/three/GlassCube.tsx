@@ -121,9 +121,12 @@ interface GlassCubeProps {
   scrollProgress?: number;
 }
 
-export function GlassCube({ scrollProgress = 0 }: GlassCubeProps) {
+export function GlassCube({ quality, scrollProgress = 0 }: GlassCubeProps) {
   const groupRef = useRef<THREE.Group>(null);
   const prefersReducedMotion = useReducedMotion();
+
+  // Scale down cube on smaller screens so it fits the viewport
+  const scaleMultiplier = quality === 'low' ? 0.6 : quality === 'medium' ? 0.8 : 1.0;
 
   // Scroll-driven transforms
   const heroProgress = Math.min(scrollProgress / 0.3, 1);
@@ -137,7 +140,7 @@ export function GlassCube({ scrollProgress = 0 }: GlassCubeProps) {
 
     if (prefersReducedMotion) {
       groupRef.current.position.y = targetY;
-      groupRef.current.scale.setScalar(targetScale);
+      groupRef.current.scale.setScalar(targetScale * scaleMultiplier);
       return;
     }
 
@@ -149,7 +152,7 @@ export function GlassCube({ scrollProgress = 0 }: GlassCubeProps) {
 
     // Breathing scale + scroll scale
     const breathe = targetScale + Math.sin(t * 0.6) * 0.015;
-    groupRef.current.scale.setScalar(breathe);
+    groupRef.current.scale.setScalar(breathe * scaleMultiplier);
 
     // Floating bob + scroll Y offset
     groupRef.current.position.y = Math.sin(t * 0.4) * 0.1 + targetY;

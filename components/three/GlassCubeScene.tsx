@@ -20,8 +20,6 @@ export function GlassCubeScene({ quality: initialQuality, scrollProgress }: Glas
 
   // Effective quality: auto-degrade if PerformanceMonitor detects low FPS
   const quality: QualityTier = degraded && initialQuality === 'high' ? 'medium' : initialQuality;
-  const showPostProcessing = quality !== 'low' && !degraded;
-
   const handleDecline = useCallback(() => setDegraded(true), []);
 
   return (
@@ -44,7 +42,7 @@ export function GlassCubeScene({ quality: initialQuality, scrollProgress }: Glas
         <CubeLighting />
         <TopoBackground quality={quality} />
         <GlassCube quality={quality} scrollProgress={scrollProgress} />
-        {showPostProcessing && <ScenePostProcessing />}
+        <ScenePostProcessing degraded={degraded || quality === 'low'} />
       </Suspense>
     </Canvas>
   );

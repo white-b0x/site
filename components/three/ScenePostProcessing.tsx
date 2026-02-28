@@ -10,7 +10,24 @@ import {
 import { BlendFunction } from 'postprocessing';
 import { Vector2 } from 'three';
 
-export function ScenePostProcessing() {
+interface ScenePostProcessingProps {
+  degraded?: boolean;
+}
+
+export function ScenePostProcessing({ degraded = false }: ScenePostProcessingProps) {
+  if (degraded) {
+    return (
+      <EffectComposer>
+        <Bloom
+          luminanceThreshold={0.25}
+          luminanceSmoothing={0.9}
+          intensity={1.0}
+          mipmapBlur
+        />
+      </EffectComposer>
+    );
+  }
+
   return (
     <EffectComposer>
       {/* Bloom: warm blob emissive glow */}
