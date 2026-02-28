@@ -146,9 +146,9 @@ export function GlassCube({ quality, scrollProgress = 0 }: GlassCubeProps) {
 
     // Auto-rotation on all axes
     const baseSpeed = 0.08 + heroProgress * 0.04;
-    groupRef.current.rotation.x += delta * baseSpeed * 0.7;
+    groupRef.current.rotation.x += delta * baseSpeed * 0.83;
     groupRef.current.rotation.y += delta * baseSpeed;
-    groupRef.current.rotation.z += delta * baseSpeed * 0.4;
+    groupRef.current.rotation.z += delta * baseSpeed * 0.53;
 
     // Breathing scale + scroll scale
     const breathe = targetScale + Math.sin(t * 0.6) * 0.015;
@@ -162,10 +162,10 @@ export function GlassCube({ quality, scrollProgress = 0 }: GlassCubeProps) {
     <group ref={groupRef}>
       <RoundedBox args={[3.5, 3.5, 3.5]} radius={0.1} smoothness={4}>
         <meshStandardMaterial
-          color="#111111"
+          color="#1a1608"
           metalness={1}
-          roughness={0.15}
-          envMapIntensity={1.5}
+          roughness={0.3}
+          envMapIntensity={0.7}
         />
       </RoundedBox>
       <GridOverlay prefersReducedMotion={prefersReducedMotion} />

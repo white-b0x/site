@@ -22,40 +22,31 @@ export function CubeLighting() {
       <directionalLight
         ref={keyLightRef}
         position={[3, 5, 2]}
-        intensity={2.0}
+        intensity={1.4}
         color="#ffa040"
       />
 
       {/* Cool fill light — from below-left, blue contrast against warm blobs */}
       <directionalLight
         position={[-2, -3, -1]}
-        intensity={0.4}
+        intensity={0.3}
         color="#6070a0"
       />
 
       {/* Rim light — from behind, warm edge highlights */}
       <pointLight
         position={[0, 0, -4]}
-        intensity={1.2}
+        intensity={0.8}
         color="#ffd4a0"
-        distance={10}
+        distance={14}
         decay={2}
       />
 
       {/* Subtle ambient fill */}
       <ambientLight intensity={0.15} color="#1a1a2e" />
 
-      {/* Spot from above for bright highlight on top face */}
-      <spotLight
-        position={[0, 6, 0]}
-        intensity={0.6}
-        angle={0.3}
-        penumbra={0.8}
-        color="#fff5e6"
-      />
-
       {/* Studio environment for chrome reflections */}
-      <Environment preset="studio" environmentIntensity={0.4} />
+      <Environment preset="studio" environmentIntensity={0.3} />
 
       {/* Depth fog */}
       <fog attach="fog" args={['#030508', 10, 40]} />
