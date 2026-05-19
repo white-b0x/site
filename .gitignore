@@ -39,6 +39,15 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# claude internal
+# Claude Code working directory (local only)
 .claude/
-!.claude/CLAUDE.md
+CLAUDE.md
+
+# Internal development directory
+.local/
+
+SESSION_NOTES.md
+PLANNING.md
+SCRATCH.md
+*.scratch.*
+*.draft.*
