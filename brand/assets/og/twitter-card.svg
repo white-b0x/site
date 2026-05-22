@@ -1,0 +1,53 @@
+<svg viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <title>whiteb0x — Twitter Card (1200×675, 16:9)</title>
+  <desc>Twitter summary_large_image card. Same composition as OG, retuned for 16:9 ratio.</desc>
+
+  <rect width="1200" height="675" fill="#030508"/>
+
+  <g stroke="#0e1218" stroke-width="1" opacity="0.6">
+    <line x1="0"    y1="135"  x2="1200" y2="135"/>
+    <line x1="0"    y1="540"  x2="1200" y2="540"/>
+    <line x1="120"  y1="0"    x2="120"  y2="675"/>
+    <line x1="1080" y1="0"    x2="1080" y2="675"/>
+  </g>
+
+  <g stroke="#1a1f28" stroke-width="6" fill="none" stroke-linecap="square">
+    <path d="M120 305 L120 135 L280 135"/>
+    <path d="M920 135 L1080 135 L1080 305"/>
+    <path d="M1080 370 L1080 540 L920 540"/>
+    <path d="M280 540 L120 540 L120 370"/>
+  </g>
+
+  <g stroke="#d4a574" stroke-width="2.5" fill="none" stroke-linecap="square" opacity="0.85">
+    <path d="M420 254 L420 242 L432 242"/>
+    <path d="M768 242 L780 242 L780 254"/>
+    <path d="M780 420 L780 432 L768 432"/>
+    <path d="M432 432 L420 432 L420 420"/>
+  </g>
+
+  <text x="600" y="358"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="128"
+        font-weight="300"
+        letter-spacing="-2.5"
+        text-anchor="middle"
+        fill="#f5f5f5">whiteb0x</text>
+
+  <line x1="560" y1="401" x2="640" y2="401" stroke="#d4a574" stroke-width="1.5" opacity="0.7"/>
+
+  <text x="600" y="433"
+        font-family="Geist Mono, ui-monospace, SF Mono, Monaco, monospace"
+        font-size="18"
+        font-weight="500"
+        letter-spacing="5.4"
+        text-anchor="middle"
+        fill="#d4a574">A DEVELOPMENT STUDIO</text>
+
+  <text x="1080" y="630"
+        font-family="Geist Mono, ui-monospace, SF Mono, Monaco, monospace"
+        font-size="16"
+        font-weight="500"
+        letter-spacing="0.5"
+        text-anchor="end"
+        fill="rgba(245,245,245,0.5)">whiteb0x.com</text>
+</svg>

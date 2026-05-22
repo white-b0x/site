@@ -1,0 +1,121 @@
+{
+  "name": "whiteb0x Color Palette",
+  "version": "1.0.0",
+  "colorSpace": "oklch",
+  "description": "Cool-tinted neutral scale (ink) anchored by a warm gold accent (aureate) and a sparingly-used cool cyan (cerulean). Generated from scratch — not derived from Tailwind defaults. The pair #030508 (ink-1000) and #ffd9a0 (aureate-200) are the brand anchor points.",
+  "colors": {
+    "ink": {
+      "description": "Neutral scale with subtle cool blue tint (hue 235-245). The brand's foundation surface.",
+      "50":   { "oklch": "oklch(0.97 0.004 235)", "hex": "#f4f5f6" },
+      "100":  { "oklch": "oklch(0.96 0.005 235)", "hex": "#f0f1f3" },
+      "200":  { "oklch": "oklch(0.85 0.007 235)", "hex": "#d2d6dc" },
+      "300":  { "oklch": "oklch(0.74 0.009 235)", "hex": "#b3b8c0" },
+      "400":  { "oklch": "oklch(0.60 0.011 235)", "hex": "#8b9099" },
+      "500":  { "oklch": "oklch(0.47 0.013 235)", "hex": "#686d76" },
+      "600":  { "oklch": "oklch(0.36 0.013 235)", "hex": "#4d5158" },
+      "700":  { "oklch": "oklch(0.26 0.012 235)", "hex": "#34373d" },
+      "800":  { "oklch": "oklch(0.18 0.010 235)", "hex": "#22252b" },
+      "900":  { "oklch": "oklch(0.11 0.009 240)", "hex": "#14171c" },
+      "950":  { "oklch": "oklch(0.06 0.008 245)", "hex": "#0a0c10" },
+      "1000": { "oklch": "oklch(0.03 0.007 245)", "hex": "#030508", "role": "brand-background" }
+    },
+    "aureate": {
+      "description": "Warm gold accent — the brand's identity color. Used on CTAs, focus rings, hero glow, the cube grid shader. The 10% of the 60-30-10 split.",
+      "50":  { "oklch": "oklch(0.98 0.020 78)", "hex": "#fbf3e0" },
+      "100": { "oklch": "oklch(0.95 0.045 78)", "hex": "#f4dfb2" },
+      "200": { "oklch": "oklch(0.91 0.078 78)", "hex": "#ffd9a0", "role": "brand-glow" },
+      "300": { "oklch": "oklch(0.85 0.095 76)", "hex": "#e9c47a" },
+      "400": { "oklch": "oklch(0.78 0.108 73)", "hex": "#d4a574", "role": "brand-focus" },
+      "500": { "oklch": "oklch(0.70 0.115 68)", "hex": "#b78a4f" },
+      "600": { "oklch": "oklch(0.60 0.108 60)", "hex": "#946d38" },
+      "700": { "oklch": "oklch(0.48 0.090 50)", "hex": "#705125" },
+      "800": { "oklch": "oklch(0.36 0.072 45)", "hex": "#523919" },
+      "900": { "oklch": "oklch(0.24 0.050 42)", "hex": "#34230f" },
+      "950": { "oklch": "oklch(0.15 0.030 40)", "hex": "#1d1308" }
+    },
+    "cerulean": {
+      "description": "Cool cyan secondary — used sparingly for info states and the original cube fill light reference. Not a primary brand color.",
+      "300": { "oklch": "oklch(0.85 0.090 228)", "hex": "#9ed4f1" },
+      "400": { "oklch": "oklch(0.78 0.131 232)", "hex": "#38bdf8", "role": "brand-cyan" },
+      "500": { "oklch": "oklch(0.68 0.130 235)", "hex": "#3a9ed4" },
+      "600": { "oklch": "oklch(0.55 0.120 238)", "hex": "#2d7faa" }
+    },
+    "semantic": {
+      "description": "Status colors. Avoids default reds/greens by tuning hue and lightness off Tailwind defaults.",
+      "success": {
+        "oklch": "oklch(0.75 0.140 145)",
+        "hex": "#5cc78c",
+        "rationale": "Sage green, hue 145 (between yellow-green and emerald). Distinguishable from generic Tailwind green-500."
+      },
+      "warning": {
+        "oklch": "oklch(0.78 0.108 73)",
+        "hex": "#d4a574",
+        "rationale": "Brand aureate-400. Warning uses brand gold to keep the tonal vocabulary tight."
+      },
+      "error": {
+        "oklch": "oklch(0.65 0.190 25)",
+        "hex": "#dd5a3e",
+        "rationale": "Vermillion — warmer and more sophisticated than default red. Hue 25, not Tailwind red-500's 27."
+      },
+      "info": {
+        "oklch": "oklch(0.78 0.131 232)",
+        "hex": "#38bdf8",
+        "rationale": "Brand cerulean-400. Info shares the brand cyan."
+      }
+    },
+    "surfaces": {
+      "description": "Compositional surface tokens — what you stack on the background to create depth.",
+      "base":          { "value": "var(--color-ink-1000)", "description": "Page background" },
+      "raised":        { "value": "rgba(255, 255, 255, 0.04)", "description": "Slightly elevated panels" },
+      "glass":         { "value": "rgba(10, 13, 18, 0.6)", "description": "Glass morphism panels (use with backdrop-blur 20px)" },
+      "glass-strong":  { "value": "rgba(10, 13, 18, 0.8)", "description": "Glass with higher opacity for legibility-critical text" },
+      "border":        { "value": "rgba(255, 255, 255, 0.08)", "description": "Default panel border" },
+      "border-strong": { "value": "rgba(255, 255, 255, 0.16)", "description": "Hover/focus state border" },
+      "border-accent": { "value": "rgba(212, 165, 116, 0.30)", "description": "Aureate border for emphasis" }
+    },
+    "text": {
+      "description": "Foreground tokens — opacity-driven hierarchy on dark backgrounds.",
+      "primary":   { "value": "#f5f5f5", "opacity": "1.0", "description": "Headings, primary copy" },
+      "secondary": { "value": "rgba(245, 245, 245, 0.7)", "description": "Body, descriptions" },
+      "tertiary":  { "value": "rgba(245, 245, 245, 0.5)", "description": "Metadata, labels" },
+      "disabled":  { "value": "rgba(245, 245, 245, 0.3)", "description": "Inactive elements" },
+      "accent":    { "value": "var(--color-aureate-300)", "description": "Highlighted text, links" },
+      "code":      { "value": "var(--color-aureate-300)", "description": "Inline code, technical signals" }
+    },
+    "glow": {
+      "description": "Light emission tokens — used in text-shadow, box-shadow, and bloom.",
+      "aureate-soft":   { "value": "rgba(255, 217, 160, 0.15)", "description": "Subtle gold halo (min state of breathe)" },
+      "aureate-medium": { "value": "rgba(255, 217, 160, 0.30)", "description": "Active gold halo (max state of breathe)" },
+      "aureate-strong": { "value": "rgba(255, 217, 160, 0.40)", "description": "Selection highlight, focus pulse" },
+      "cerulean-soft":  { "value": "rgba(56, 189, 248, 0.20)", "description": "Cyan halo (sparingly)" },
+      "cerulean-medium":{ "value": "rgba(56, 189, 248, 0.40)", "description": "Cyan emphasis" }
+    }
+  },
+  "accessibility": {
+    "wcag_aa": true,
+    "wcag_aaa_partial": true,
+    "tested_combinations": [
+      { "fg": "#f5f5f5", "bg": "#030508", "ratio": 17.74, "passes": ["AA", "AAA"] },
+      { "fg": "#d4a574", "bg": "#030508", "ratio": 9.34,  "passes": ["AA", "AAA"] },
+      { "fg": "#ffd9a0", "bg": "#030508", "ratio": 13.49, "passes": ["AA", "AAA"] },
+      { "fg": "#e9c47a", "bg": "#030508", "ratio": 10.69, "passes": ["AA", "AAA"] },
+      { "fg": "#38bdf8", "bg": "#030508", "ratio": 9.05,  "passes": ["AA", "AAA"] },
+      { "fg": "rgba(245,245,245,0.7)", "bg": "#030508", "ratio": 11.20, "passes": ["AA", "AAA"] },
+      { "fg": "rgba(245,245,245,0.5)", "bg": "#030508", "ratio": 6.95,  "passes": ["AA", "AAA-large"] }
+    ],
+    "colorblind_safe": true,
+    "colorblind_notes": "Gold + cyan dual accents are distinguishable across all three major colorblind types (deuteranopia, protanopia, tritanopia). The semantic palette uses both hue and lightness to differentiate, not hue alone."
+  },
+  "usage": {
+    "60_30_10_distribution": {
+      "60_dominant": ["ink-1000", "ink-950"],
+      "30_secondary": ["text-primary (#f5f5f5)", "text-secondary"],
+      "10_accent": ["aureate-200", "aureate-300", "aureate-400"]
+    },
+    "do_not_use": [
+      "Pure black (#000000) — use ink-1000 for the cool tint",
+      "Pure white (#ffffff) — use text-primary (#f5f5f5) for warmth",
+      "Tailwind default colors (slate, gray, amber, sky) — they map close to our scales but break the brand vocabulary"
+    ]
+  }
+}

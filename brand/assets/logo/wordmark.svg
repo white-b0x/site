@@ -1,0 +1,5 @@
+<svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
+  <title>whiteb0x — Wordmark</title>
+  <desc>The brand wordmark set in Geist Sans Light (300) with tight tracking. Renders correctly when Geist Sans is loaded; convert to paths for static distribution where the font may be absent.</desc>
+  <text x="0" y="30" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="300" letter-spacing="-0.4" fill="currentColor">whiteb0x</text>
+</svg>

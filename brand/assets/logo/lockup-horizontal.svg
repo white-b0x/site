@@ -1,0 +1,15 @@
+<svg viewBox="0 0 280 40" xmlns="http://www.w3.org/2000/svg">
+  <title>whiteb0x — Horizontal Lockup (mark + wordmark)</title>
+  <desc>Registration mark (Concept B) at 32px + 16px gap + Geist Sans Light wordmark.</desc>
+
+  <!-- Mark (Registration brackets) scaled to 32×32, positioned at left -->
+  <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+    <path d="M4 13 L4 4 L13 4"/>
+    <path d="M23 4 L32 4 L32 13"/>
+    <path d="M32 23 L32 32 L23 32"/>
+    <path d="M13 32 L4 32 L4 23"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="56" y="30" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="300" letter-spacing="-0.4" fill="currentColor">whiteb0x</text>
+</svg>

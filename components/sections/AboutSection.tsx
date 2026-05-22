@@ -33,11 +33,11 @@ export function AboutSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#030508]/70 via-[#030508]/90 to-[#030508]/70" />
       <div className="relative mx-auto max-w-3xl text-center">
         <GlassCard className="py-8 px-5 sm:py-12 sm:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-white/90 md:text-4xl">
+          <h2 className="text-3xl font-medium tracking-tight text-white/90 md:text-4xl">
             Engineering What&apos;s Next
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-white/60">
-            We build software that matters — from high-performance web applications
+            We build software that matters: from high-performance web applications
             to decentralized protocols. Full-stack engineering with precision,
             from idea to production.
           </p>

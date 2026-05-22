@@ -1,0 +1,15 @@
+<svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+  <title>whiteb0x — Vertical Lockup (mark above wordmark)</title>
+  <desc>Registration mark above wordmark — for mobile, narrow contexts, square crops.</desc>
+
+  <!-- Mark centered horizontally, scaled 48×48 -->
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" transform="translate(76 8)">
+    <path d="M6 17 L6 6 L17 6"/>
+    <path d="M31 6 L42 6 L42 17"/>
+    <path d="M42 31 L42 42 L31 42"/>
+    <path d="M17 42 L6 42 L6 31"/>
+  </g>
+
+  <!-- Wordmark below, centered -->
+  <text x="100" y="98" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="28" font-weight="300" letter-spacing="-0.3" text-anchor="middle" fill="currentColor">whiteb0x</text>
+</svg>

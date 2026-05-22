@@ -51,3 +51,6 @@ PLANNING.md
 SCRATCH.md
 *.scratch.*
 *.draft.*
+
+# Brand reference images (binary ideation copies, not production assets)
+brand/assets/references/

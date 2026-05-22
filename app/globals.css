@@ -43,8 +43,8 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Breathing amber glow on hero text */
-@keyframes breathe-glow {
+/* Brand signature — aureate breathe */
+@keyframes aureate-breathe {
   0%, 100% {
     text-shadow:
       0 0 20px rgba(255, 217, 160, 0.15),
@@ -60,7 +60,7 @@ html {
 }
 
 .hero-text {
-  animation: breathe-glow 4s ease-in-out infinite;
+  animation: aureate-breathe 4s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -69,10 +69,10 @@ html {
   }
 
   .hero-text {
-    text-shadow:
-      0 0 20px rgba(255, 217, 160, 0.15),
-      0 0 40px rgba(255, 217, 160, 0.08);
     animation: none;
+    text-shadow:
+      0 0 30px rgba(255, 217, 160, 0.18),
+      0 0 60px rgba(255, 217, 160, 0.08);
   }
 
   *,

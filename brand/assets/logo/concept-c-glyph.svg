@@ -1,0 +1,6 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="round">
+  <title>whiteb0x — Concept C: Glyph (w0 monogram)</title>
+  <desc>A custom monogram combining the "w" of white and the "0" of b0x. The w is rendered as four geometric strokes; the 0 sits as a perfect circle at baseline.</desc>
+  <path d="M10 22 L17 42 L24 30 L31 42 L38 22"/>
+  <circle cx="50" cy="32" r="9"/>
+</svg>

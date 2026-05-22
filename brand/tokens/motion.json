@@ -1,0 +1,147 @@
+{
+  "name": "whiteb0x Motion Identity",
+  "version": "1.0.0",
+  "description": "Animation primitives that define how the brand moves. The signature is 'aureate-breathe' — a 4-second three-layer gold text-shadow pulse on hero typography. All entrance motions are deliberate and short (≤600ms) — this brand does not over-animate.",
+  "principles": [
+    "Reduced amplitude (y:24, not y:60) — feels engineered, not template-GSAP",
+    "Deliberate durations (≤600ms) — no luxurious slow-mo unless it's the signature breathe",
+    "Apple-style precise easing — not snappy, not bouncy, just considered",
+    "Respect prefers-reduced-motion — fall back to instant on reduced",
+    "One signature animation only — the breathe — everything else supports it"
+  ],
+  "easing": {
+    "precise": {
+      "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+      "description": "Apple-style refined deceleration. Default for layout transitions.",
+      "use": "Layout entrances, modal open/close, drawer transitions"
+    },
+    "outQuart": {
+      "value": "cubic-bezier(0.25, 1, 0.5, 1)",
+      "description": "Smooth deceleration. The entrance default.",
+      "use": "GSAP entrance animations, fade-up reveals"
+    },
+    "inOut": {
+      "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+      "description": "Symmetric easing for loops.",
+      "use": "Breathing animations, glow pulses, ambient loops"
+    },
+    "mechanical": {
+      "value": "cubic-bezier(0.4, 0, 0.6, 1)",
+      "description": "Symmetric ease-in-out for interactive feedback.",
+      "use": "Button hover, focus ring, color transitions"
+    },
+    "linear": {
+      "value": "linear",
+      "description": "Constant velocity. Used for continuous rotation and shaders.",
+      "use": "3D cube rotation, topo shader time uniform"
+    }
+  },
+  "duration": {
+    "instant":  { "value": "0ms",    "use": "Color changes on stateful elements, prefers-reduced-motion fallback" },
+    "fast":     { "value": "150ms",  "use": "Hover states, focus ring appearance, opacity tweaks" },
+    "base":     { "value": "250ms",  "use": "Default transition duration, layout shifts, color changes" },
+    "slow":     { "value": "600ms",  "use": "Entrance reveals, hero animations, section transitions" },
+    "ambient":  { "value": "4000ms", "use": "Breathing loops, glow pulses (the signature breathe)" }
+  },
+  "entrance": {
+    "primary": {
+      "name": "fade-up",
+      "description": "Default entrance for content blocks. Subtle, deliberate.",
+      "from": { "opacity": 0, "translateY": "24px" },
+      "to":   { "opacity": 1, "translateY": "0" },
+      "duration": "600ms",
+      "easing": "outQuart"
+    },
+    "subtle": {
+      "name": "fade",
+      "description": "For text-only or already-positioned elements.",
+      "from": { "opacity": 0 },
+      "to":   { "opacity": 1 },
+      "duration": "400ms",
+      "easing": "outQuart"
+    },
+    "stagger": {
+      "between_siblings": "80ms",
+      "description": "Slight stagger creates rhythm without dragging the eye"
+    }
+  },
+  "signature": {
+    "name": "aureate-breathe",
+    "description": "The brand's signature animation. A three-layer gold text-shadow that pulses opacity over 4 seconds. Used on the hero wordmark and selected focal text. Reads as: the mark is alive, the studio is awake, precision is breathing.",
+    "duration": "4000ms",
+    "easing": "ease-in-out",
+    "iteration": "infinite",
+    "keyframes": {
+      "0%": {
+        "textShadow": "0 0 20px rgba(255, 217, 160, 0.15), 0 0 40px rgba(255, 217, 160, 0.08), 0 0 80px rgba(255, 217, 160, 0.04)"
+      },
+      "50%": {
+        "textShadow": "0 0 20px rgba(255, 217, 160, 0.30), 0 0 40px rgba(255, 217, 160, 0.16), 0 0 80px rgba(255, 217, 160, 0.08)"
+      },
+      "100%": {
+        "textShadow": "0 0 20px rgba(255, 217, 160, 0.15), 0 0 40px rgba(255, 217, 160, 0.08), 0 0 80px rgba(255, 217, 160, 0.04)"
+      }
+    },
+    "reducedMotion": {
+      "static": "0 0 30px rgba(255, 217, 160, 0.18), 0 0 60px rgba(255, 217, 160, 0.08)"
+    }
+  },
+  "interaction": {
+    "hover": {
+      "description": "Default interactive hover state",
+      "duration": "150ms",
+      "easing": "mechanical",
+      "properties": ["background-color", "border-color", "color", "transform"]
+    },
+    "focus": {
+      "description": "Focus-visible ring appearance",
+      "duration": "150ms",
+      "easing": "mechanical",
+      "ring": {
+        "width": "2px",
+        "offset": "2px",
+        "color": "var(--color-aureate-400)"
+      }
+    },
+    "press": {
+      "description": "Active/pressed state — subtle compression",
+      "duration": "100ms",
+      "easing": "mechanical",
+      "transform": "scale(0.98)"
+    }
+  },
+  "scroll": {
+    "lenis": {
+      "lerp": 0.1,
+      "smoothWheel": true,
+      "wheelMultiplier": 1.0,
+      "rationale": "Existing Lenis config — converging pattern but justified by the deliberate cinematic feel. If we ever change, document why."
+    },
+    "reveal": {
+      "trigger": "intersection",
+      "rootMargin": "-15% 0px",
+      "description": "Section reveals trigger when 85% visible (matches existing GSAP scroll trigger)"
+    }
+  },
+  "3d_scene": {
+    "cube_rotation": {
+      "axes": { "x": 0.83, "y": 1.0, "z": 0.53 },
+      "description": "Irrational ratios prevent flat-face alignment moments. Don't change to 1:1:1.",
+      "base_speed": 0.08
+    },
+    "breath_scale": {
+      "amplitude": 0.015,
+      "frequency_hz": 0.25,
+      "description": "Matches the 4s text breathe — cube and text breathe at the same rate (heartbeat sync)"
+    },
+    "bob": {
+      "amplitude_y": 0.1,
+      "frequency_hz": 0.18
+    }
+  },
+  "reducedMotion": {
+    "respect": true,
+    "fallback_policy": "Disable all entrance animations, breathing, and ambient loops. Keep hover/focus transitions (instant or 100ms max).",
+    "static_glow": "0 0 30px rgba(255, 217, 160, 0.18), 0 0 60px rgba(255, 217, 160, 0.08)"
+  }
+}

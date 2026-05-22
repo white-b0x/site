@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 export const alt = 'whiteb0x — A Development Studio';
-export const size = { width: 1200, height: 630 };
+export const size = { width: 1200, height: 675 };
 export const contentType = 'image/png';
 
 export default function TwitterImage() {
@@ -15,25 +15,25 @@ export default function TwitterImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#0a0e14',
+          backgroundColor: '#030508',
           fontFamily: 'system-ui, sans-serif',
           position: 'relative',
           overflow: 'hidden',
           padding: '64px 80px',
         }}
       >
-        {/* Topo wave lines — rainbow wireframe background */}
+        {/* Topographic wave lines — references site background */}
         {[
-          { y: 420, c: '#40c040' },
-          { y: 440, c: '#80d040' },
-          { y: 460, c: '#ffd700' },
-          { y: 480, c: '#ffa040' },
-          { y: 500, c: '#ff8c00' },
-          { y: 520, c: '#ff4040' },
-          { y: 540, c: '#ff60a0' },
-          { y: 560, c: '#c060ff' },
-          { y: 580, c: '#00d4ff' },
-          { y: 600, c: '#4080ff' },
+          { y: 450, c: '#40c040' },
+          { y: 470, c: '#80d040' },
+          { y: 490, c: '#ffd700' },
+          { y: 510, c: '#ffa040' },
+          { y: 530, c: '#ff8c00' },
+          { y: 550, c: '#ff4040' },
+          { y: 570, c: '#ff60a0' },
+          { y: 590, c: '#c060ff' },
+          { y: 610, c: '#00d4ff' },
+          { y: 630, c: '#4080ff' },
         ].map((l) => (
           <div
             key={l.y}
@@ -51,9 +51,8 @@ export default function TwitterImage() {
 
         {/* Top section: icon + brand */}
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {/* Icon + brand name row */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
-            {/* Glass cube in rounded container */}
+            {/* Registration mark in rounded container */}
             <div
               style={{
                 width: 100,
@@ -66,39 +65,11 @@ export default function TwitterImage() {
                 flexShrink: 0,
               }}
             >
-              <svg
-                width="64"
-                height="64"
-                viewBox="0 0 32 32"
-                fill="none"
-              >
-                <path
-                  d="M16 5 L27 11.5 L16 18 L5 11.5Z"
-                  fill="white"
-                  opacity="0.18"
-                />
-                <path
-                  d="M5 11.5 L16 18 L16 27 L5 20.5Z"
-                  fill="white"
-                  opacity="0.08"
-                />
-                <path
-                  d="M16 18 L27 11.5 L27 20.5 L16 27Z"
-                  fill="white"
-                  opacity="0.12"
-                />
-                <path
-                  d="M16 5 L27 11.5 L16 18 L5 11.5Z M5 11.5 L5 20.5 L16 27 L27 20.5 L27 11.5 M16 18 L16 27"
-                  stroke="rgba(255,255,255,0.55)"
-                  strokeWidth="0.5"
-                  fill="none"
-                />
-                <path
-                  d="M16 5 L27 11.5 L16 18 L5 11.5Z"
-                  stroke="rgba(255,255,255,0.25)"
-                  strokeWidth="0.3"
-                  fill="none"
-                />
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                <path d="M8 22 L8 8 L22 8" stroke="#f5f5f5" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter"/>
+                <path d="M42 8 L56 8 L56 22" stroke="#f5f5f5" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter"/>
+                <path d="M56 42 L56 56 L42 56" stroke="#f5f5f5" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter"/>
+                <path d="M22 56 L8 56 L8 42" stroke="#f5f5f5" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter"/>
               </svg>
             </div>
 
@@ -107,7 +78,7 @@ export default function TwitterImage() {
               <div
                 style={{
                   fontSize: 52,
-                  fontWeight: 600,
+                  fontWeight: 500,
                   color: 'rgba(255, 255, 255, 0.92)',
                   letterSpacing: '-0.01em',
                   lineHeight: 1.1,
@@ -147,7 +118,7 @@ export default function TwitterImage() {
           </div>
         </div>
 
-        {/* CTA button — solid white */}
+        {/* CTA button + URL */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
           <div
             style={{
@@ -164,8 +135,8 @@ export default function TwitterImage() {
             <span
               style={{
                 fontSize: 16,
-                fontWeight: 600,
-                color: '#0a0e14',
+                fontWeight: 500,
+                color: '#030508',
                 letterSpacing: '0.01em',
               }}
             >
@@ -173,7 +144,6 @@ export default function TwitterImage() {
             </span>
           </div>
 
-          {/* URL */}
           <div
             style={{
               fontSize: 14,

@@ -1,0 +1,7 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+  <title>whiteb0x — Concept A: Aperture</title>
+  <desc>A square frame with two interior horizontal lines, suggesting a viewfinder or an opened-box cross-section. Reads as: looking inside the box, transparency, precision.</desc>
+  <rect x="9" y="9" width="46" height="46"/>
+  <line x1="20" y1="26" x2="44" y2="26"/>
+  <line x1="20" y1="38" x2="44" y2="38"/>
+</svg>
