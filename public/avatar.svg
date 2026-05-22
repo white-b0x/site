@@ -17,7 +17,7 @@
 
   
   <g fill="none" stroke="#f5f5f5" stroke-width="6.5" stroke-linecap="square" stroke-linejoin="miter">
-    <path d="M 407 275 L 372 275 L 372 240"></path>
+    <path d="M 407 240 L 372 240 L 372 275"></path>
     <path d="M 652 240 L 687 240 L 687 275"></path>
     <path d="M 687 485 L 687 520 L 652 520"></path>
     <path d="M 407 520 L 372 520 L 372 485"></path>

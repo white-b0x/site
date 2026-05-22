@@ -20,7 +20,7 @@
 
   
   <g fill="none" stroke="#ffd9a0" stroke-width="22" stroke-linecap="square" stroke-linejoin="miter" opacity="0.55" filter="url(#c3-soft)">
-    <path d="M 247 372 L 152 372 L 152 277"></path>
+    <path d="M 247 277 L 152 277 L 152 372"></path>
     <path d="M 777 277 L 872 277 L 872 372"></path>
     <path d="M 872 652 L 872 747 L 777 747"></path>
     <path d="M 247 747 L 152 747 L 152 652"></path>
@@ -28,7 +28,7 @@
 
   
   <g fill="none" stroke="#ffd9a0" stroke-width="18" stroke-linecap="square" stroke-linejoin="miter">
-    <path d="M 247 372 L 152 372 L 152 277"></path>
+    <path d="M 247 277 L 152 277 L 152 372"></path>
     <path d="M 777 277 L 872 277 L 872 372"></path>
     <path d="M 872 652 L 872 747 L 777 747"></path>
     <path d="M 247 747 L 152 747 L 152 652"></path>
