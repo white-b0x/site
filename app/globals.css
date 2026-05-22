@@ -63,6 +63,35 @@ html {
   animation: aureate-breathe 4s ease-in-out infinite;
 }
 
+/* Corner bracket overlay — extends registration mark motif to UI cards */
+.glass-framed {
+  position: relative;
+}
+.glass-framed::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(212, 165, 116, 0.22) 1.5px, transparent 1.5px) 0 0 / 16px 1px no-repeat,
+    linear-gradient(90deg, rgba(212, 165, 116, 0.22) 1.5px, transparent 1.5px) 0 0 / 1px 16px no-repeat,
+    linear-gradient(rgba(212, 165, 116, 0.22) 1.5px, transparent 1.5px) 100% 0 / 16px 1px no-repeat,
+    linear-gradient(-90deg, rgba(212, 165, 116, 0.22) 1.5px, transparent 1.5px) 100% 0 / 1px 16px no-repeat,
+    linear-gradient(rgba(212, 165, 116, 0.22) 1.5px, transparent 1.5px) 0 100% / 16px 1px no-repeat,
+    linear-gradient(90deg, rgba(212, 165, 116, 0.22) 1.5px, transparent 1.5px) 0 100% / 1px 16px no-repeat,
+    linear-gradient(rgba(212, 165, 116, 0.22) 1.5px, transparent 1.5px) 100% 100% / 16px 1px no-repeat,
+    linear-gradient(-90deg, rgba(212, 165, 116, 0.22) 1.5px, transparent 1.5px) 100% 100% / 1px 16px no-repeat;
+}
+
+/* Subtle gold grid background — references the cube's GLSL grid shader */
+.grid-bg-aureate {
+  background-image:
+    linear-gradient(rgba(255, 217, 160, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 217, 160, 0.032) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

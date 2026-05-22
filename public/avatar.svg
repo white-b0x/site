@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="whiteb0x — A Development Studio">
+  <title>whiteb0x — Social avatar (vertical lockup)</title>
+  <desc>Registration mark above wordmark, fitted inside the circular safe area. Per brand guidelines, the vertical lockup is the canonical mark for square crops, mobile, and social avatars.</desc>
+
+  
+  <rect width="1024" height="1024" fill="#030508"></rect>
+
+  
+  <defs>
+    <radialGradient id="breathe" cx="50%" cy="62%" r="35%">
+      <stop offset="0%" stop-color="#ffd9a0" stop-opacity="0.10"></stop>
+      <stop offset="60%" stop-color="#ffd9a0" stop-opacity="0.03"></stop>
+      <stop offset="100%" stop-color="#ffd9a0" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#breathe)"></rect>
+
+  
+  <g fill="none" stroke="#f5f5f5" stroke-width="6.5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 407 275 L 372 275 L 372 240"></path>
+    <path d="M 652 240 L 687 240 L 687 275"></path>
+    <path d="M 687 485 L 687 520 L 652 520"></path>
+    <path d="M 407 520 L 372 520 L 372 485"></path>
+  </g>
+
+  
+  <text x="512" y="700" font-family="&#39;Geist&#39;, ui-sans-serif, system-ui, sans-serif" font-size="120" font-weight="300" letter-spacing="-2.4" text-anchor="middle" fill="#f5f5f5">whiteb0x</text>
+
+  
+  <text x="512" y="770" font-family="&#39;Geist Mono&#39;, ui-monospace, &#39;SF Mono&#39;, Monaco, monospace" font-size="22" font-weight="500" letter-spacing="6.6" text-anchor="middle" fill="#d4a574">A DEVELOPMENT STUDIO</text>
+</svg>

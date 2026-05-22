@@ -54,3 +54,6 @@ SCRATCH.md
 
 # Brand reference images (binary ideation copies, not production assets)
 brand/assets/references/
+
+# Design system delivery folder (working reference, not version-controlled)
+design-system/

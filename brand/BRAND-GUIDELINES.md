@@ -211,6 +211,27 @@ The default SVG uses `currentColor` — set the parent's color and the mark inhe
 - Don't combine with another logomark unless explicitly in a partnership lockup
 - Don't recolor outside the approved palette
 
+### Social avatars
+
+12 brand-aligned avatars in `assets/avatars/`. Three families optimized for circular crop at 1024×1024:
+
+**Canonical pick:** `avatar-lockup.svg` — vertical lockup (mark + wordmark + tagline), warm radial glow. Use wherever a single avatar is requested.
+
+| Family | Files | Use |
+|--------|-------|-----|
+| **A — Mark only** | `avatar-mark.svg` | Tiny contexts (Discord, Slack, GitHub); maximum legibility |
+| **B — Vertical lockups** | `avatar-lockup.svg` ★, `avatar-lockup-framed.svg`, `avatar-lockup-topo.svg`, `avatar-lockup-aureate.svg` | Social profiles, email footers, presentation covers |
+| **C — Aureate mark** | `avatar-aureate.svg`, `avatar-aureate-echo.svg` ★★, `avatar-aureate-grid.svg`, `avatar-aureate-bold.svg`, `avatar-aureate-echo-grid.svg`, `avatar-aureate-echo-grain.svg`, `avatar-aureate-echo-topo.svg` | Brand mark expressions without wordmark |
+
+★ Canonical — use by default  
+★★ Recommended wordmark-free alternative (`avatar-aureate-echo.svg` — three concentric rings, aperture motif)
+
+**Palette used across all avatars:** `#030508` background · `#f5f5f5` mark strokes · `#ffd9a0` halos/grid lines · `#e9c47a` middle rings · `#d4a574` outer rings / tagline text
+
+**PNG rasters:** Generate via `scripts/raster-avatars.mjs` if needed for contexts that don't accept SVG.
+
+**Public canonical:** `public/avatar.svg` → links to `brand/assets/avatars/avatar-lockup.svg`
+
 ---
 
 ## 6. Iconography
@@ -444,4 +465,5 @@ Increment minor for refinements (new variants, asset additions, scale extensions
 | [assets/logo/](./assets/logo/) | SVG logo variants |
 | [assets/favicon/](./assets/favicon/) | Favicon SVGs |
 | [assets/og/](./assets/og/) | OG and Twitter card SVGs |
+| [assets/avatars/](./assets/avatars/) | 12 social avatar SVGs (3 families) |
 | [assets/references/](./assets/references/) | Prior concepts (for context, not for use) |

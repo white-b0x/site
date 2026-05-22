@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="whiteb0x">
+  <title>whiteb0x — Avatar C3 (bold halo)</title>
+  <desc>Maximum-presence treatment — heavier strokes, larger mark, stronger breathing halo. For when the avatar needs to read across a noisy feed.</desc>
+
+  
+  <rect width="1024" height="1024" fill="#030508"></rect>
+
+  <defs>
+    <radialGradient id="c3-bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd9a0" stop-opacity="0.30"></stop>
+      <stop offset="35%" stop-color="#ffd9a0" stop-opacity="0.15"></stop>
+      <stop offset="80%" stop-color="#ffd9a0" stop-opacity="0.02"></stop>
+      <stop offset="100%" stop-color="#ffd9a0" stop-opacity="0"></stop>
+    </radialGradient>
+    <filter id="c3-soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14"></feGaussianBlur>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#c3-bg)"></rect>
+
+  
+  <g fill="none" stroke="#ffd9a0" stroke-width="22" stroke-linecap="square" stroke-linejoin="miter" opacity="0.55" filter="url(#c3-soft)">
+    <path d="M 247 372 L 152 372 L 152 277"></path>
+    <path d="M 777 277 L 872 277 L 872 372"></path>
+    <path d="M 872 652 L 872 747 L 777 747"></path>
+    <path d="M 247 747 L 152 747 L 152 652"></path>
+  </g>
+
+  
+  <g fill="none" stroke="#ffd9a0" stroke-width="18" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 247 372 L 152 372 L 152 277"></path>
+    <path d="M 777 277 L 872 277 L 872 372"></path>
+    <path d="M 872 652 L 872 747 L 777 747"></path>
+    <path d="M 247 747 L 152 747 L 152 652"></path>
+  </g>
+</svg>

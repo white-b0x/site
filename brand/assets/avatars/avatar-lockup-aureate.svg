@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="whiteb0x — A Development Studio">
+  <title>whiteb0x — Avatar B3 (aureate wordmark)</title>
+  <desc>Same composition, inverted color hierarchy — the wordmark itself is rendered in brand aureate-200 with a quiet glow, mark stays white, tagline drops to white. Reads as the breathing signature applied to the entire avatar.</desc>
+
+  
+  <rect width="1024" height="1024" fill="#030508"></rect>
+
+  <defs>
+    <radialGradient id="b3-glow" cx="50%" cy="62%" r="40%">
+      <stop offset="0%" stop-color="#ffd9a0" stop-opacity="0.18"></stop>
+      <stop offset="50%" stop-color="#ffd9a0" stop-opacity="0.06"></stop>
+      <stop offset="100%" stop-color="#ffd9a0" stop-opacity="0"></stop>
+    </radialGradient>
+    <filter id="b3-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4"></feGaussianBlur>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#b3-glow)"></rect>
+
+  
+  <g fill="none" stroke="#f5f5f5" stroke-width="6.5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 407 305 L 372 305 L 372 270"></path>
+    <path d="M 652 270 L 687 270 L 687 305"></path>
+    <path d="M 687 515 L 687 550 L 652 550"></path>
+    <path d="M 407 550 L 372 550 L 372 515"></path>
+  </g>
+
+  
+  <text x="512" y="700" font-family="&#39;Geist&#39;, ui-sans-serif, system-ui, sans-serif" font-size="120" font-weight="300" letter-spacing="-2.4" text-anchor="middle" fill="#ffd9a0" opacity="0.55" filter="url(#b3-soft)">whiteb0x</text>
+
+  
+  <text x="512" y="700" font-family="&#39;Geist&#39;, ui-sans-serif, system-ui, sans-serif" font-size="120" font-weight="300" letter-spacing="-2.4" text-anchor="middle" fill="#ffd9a0">whiteb0x</text>
+
+  
+  <text x="512" y="762" font-family="&#39;Geist Mono&#39;, ui-monospace, &#39;SF Mono&#39;, Monaco, monospace" font-size="22" font-weight="500" letter-spacing="6.6" text-anchor="middle" fill="#f5f5f5" opacity="0.5">A DEVELOPMENT STUDIO</text>
+</svg>

@@ -109,6 +109,21 @@ Full motion tokens → [tokens/motion.json](./tokens/motion.json)
 }
 ```
 
+**Framed variant** — adds registration mark corner brackets to any glass card:
+```css
+/* add 'glass-framed' class to any .glass element */
+/* renders 1.5px aureate corner brackets via ::before pseudo-element */
+```
+
+**Gold grid texture** — near-invisible 80px grid referencing the cube's GLSL shader:
+```css
+.grid-bg-aureate {  /* apply to section backgrounds */
+  background-image: linear-gradient(rgba(255,217,160,0.032) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,217,160,0.032) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+```
+
 **Forbidden:** drop shadows, gradient meshes, inner shadows, large radii on buttons.
 
 ---
@@ -142,6 +157,21 @@ Full motion tokens → [tokens/motion.json](./tokens/motion.json)
 ```
 
 **Don't:** pill-shaped buttons. Use `--radius-md`.
+
+---
+
+## Social Avatars
+
+**Canonical:** [`assets/avatars/avatar-lockup.svg`](./assets/avatars/avatar-lockup.svg) — also at `public/avatar.svg`
+
+| Pick | File | When |
+|------|------|------|
+| Default | `avatar-lockup.svg` | Any social profile |
+| Icon-only | `avatar-mark.svg` | Small 20–32px contexts |
+| No wordmark | `avatar-aureate-echo.svg` | When mark alone reads better |
+| Most textured | `avatar-lockup-topo.svg` | Decks, editorial use |
+
+All 12 in `brand/assets/avatars/`. 1024×1024, circular-crop safe.
 
 ---
 
@@ -183,6 +213,7 @@ brand/
 ├── assets/logo/            ← 3 concepts + wordmark + lockups
 ├── assets/favicon/         ← SVG (currentColor + aureate)
 ├── assets/og/              ← OG 1200×630 + Twitter 1200×675
+├── assets/avatars/         ← 12 social avatars (3 families, 1024×1024)
 └── assets/references/      ← prior concepts (don't use)
 ```
 

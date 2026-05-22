@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="whiteb0x — A Development Studio">
+  <title>whiteb0x — Avatar B2 (topographic)</title>
+  <desc>Vertical lockup over a faint topographic wireframe — the 3D scene&#39;s terrain DNA distilled into a subtle texture. Lines fade to the corners so the circular crop stays clean.</desc>
+
+  
+  <rect width="1024" height="1024" fill="#030508"></rect>
+
+  <defs>
+    <radialGradient id="b2-fade" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="black" stop-opacity="1"></stop>
+      <stop offset="70%" stop-color="black" stop-opacity="0.6"></stop>
+      <stop offset="100%" stop-color="black" stop-opacity="0"></stop>
+    </radialGradient>
+    <mask id="b2-mask">
+      <rect width="1024" height="1024" fill="url(#b2-fade)"></rect>
+    </mask>
+    <radialGradient id="b2-glow" cx="50%" cy="58%" r="35%">
+      <stop offset="0%" stop-color="#ffd9a0" stop-opacity="0.10"></stop>
+      <stop offset="100%" stop-color="#ffd9a0" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+
+  
+  <g mask="url(#b2-mask)" stroke="#ffd9a0" fill="none" stroke-width="1" opacity="0.18">
+    
+    <line x1="0" y1="640" x2="1024" y2="640"></line>
+    <line x1="0" y1="680" x2="1024" y2="680"></line>
+    <line x1="0" y1="724" x2="1024" y2="724"></line>
+    <line x1="0" y1="772" x2="1024" y2="772"></line>
+    <line x1="0" y1="824" x2="1024" y2="824"></line>
+    <line x1="0" y1="880" x2="1024" y2="880"></line>
+    <line x1="0" y1="940" x2="1024" y2="940"></line>
+  </g>
+  
+  <g mask="url(#b2-mask)" stroke="#ffd9a0" fill="none" stroke-width="1" opacity="0.14">
+    <line x1="0" y1="1024" x2="380" y2="640"></line>
+    <line x1="170" y1="1024" x2="430" y2="640"></line>
+    <line x1="340" y1="1024" x2="475" y2="640"></line>
+    <line x1="510" y1="1024" x2="512" y2="640"></line>
+    <line x1="680" y1="1024" x2="549" y2="640"></line>
+    <line x1="850" y1="1024" x2="594" y2="640"></line>
+    <line x1="1024" y1="1024" x2="644" y2="640"></line>
+  </g>
+  
+  <g mask="url(#b2-mask)" stroke="#ffffff" fill="none" stroke-width="1" opacity="0.05">
+    <line x1="0" y1="120" x2="1024" y2="120"></line>
+    <line x1="0" y1="200" x2="1024" y2="200"></line>
+    <line x1="0" y1="280" x2="1024" y2="280"></line>
+  </g>
+
+  
+  <rect width="1024" height="1024" fill="url(#b2-glow)"></rect>
+
+  
+  <g fill="none" stroke="#f5f5f5" stroke-width="6.5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 407 305 L 372 305 L 372 270"></path>
+    <path d="M 652 270 L 687 270 L 687 305"></path>
+    <path d="M 687 515 L 687 550 L 652 550"></path>
+    <path d="M 407 550 L 372 550 L 372 515"></path>
+  </g>
+
+  
+  <text x="512" y="700" font-family="&#39;Geist&#39;, ui-sans-serif, system-ui, sans-serif" font-size="118" font-weight="300" letter-spacing="-2.3" text-anchor="middle" fill="#f5f5f5">whiteb0x</text>
+
+  
+  <text x="512" y="762" font-family="&#39;Geist Mono&#39;, ui-monospace, &#39;SF Mono&#39;, Monaco, monospace" font-size="22" font-weight="500" letter-spacing="6.6" text-anchor="middle" fill="#d4a574">A DEVELOPMENT STUDIO</text>
+</svg>

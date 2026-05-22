@@ -3,12 +3,13 @@ import type { ReactNode } from 'react';
 interface GlassCardProps {
   children: ReactNode;
   className?: string;
+  framed?: boolean;
 }
 
-export function GlassCard({ children, className = '' }: GlassCardProps) {
+export function GlassCard({ children, className = '', framed = false }: GlassCardProps) {
   return (
     <div
-      className={`glass rounded-2xl p-6 transition-all duration-300 hover:border-amber-200/20 ${className}`}
+      className={`glass rounded-2xl p-6 transition-all duration-300 hover:border-amber-200/20 ${framed ? 'glass-framed' : ''} ${className}`}
     >
       {children}
     </div>

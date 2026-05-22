@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="whiteb0x">
+  <title>whiteb0x — Avatar C2 (echo)</title>
+  <desc>Three concentric registration marks at decreasing scale and opacity — the studio&#39;s aperture, focusing inward. Each ring is one bracket-arm thinner than the last.</desc>
+
+  
+  <rect width="1024" height="1024" fill="#030508"></rect>
+
+  <defs>
+    <radialGradient id="c2-bg" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#ffd9a0" stop-opacity="0.18"></stop>
+      <stop offset="100%" stop-color="#ffd9a0" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#c2-bg)"></rect>
+
+  
+  <g fill="none" stroke="#d4a574" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter" opacity="0.30">
+    <path d="M 277 162 L 162 162 L 162 277"></path>
+    <path d="M 747 162 L 862 162 L 862 277"></path>
+    <path d="M 862 747 L 862 862 L 747 862"></path>
+    <path d="M 277 862 L 162 862 L 162 747"></path>
+  </g>
+
+  
+  <g fill="none" stroke="#e9c47a" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter" opacity="0.60">
+    <path d="M 312 262 L 262 262 L 262 312"></path>
+    <path d="M 712 262 L 762 262 L 762 312"></path>
+    <path d="M 762 712 L 762 762 L 712 762"></path>
+    <path d="M 312 762 L 262 762 L 262 712"></path>
+  </g>
+
+  
+  <g fill="none" stroke="#ffd9a0" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 412 372 L 372 372 L 372 412"></path>
+    <path d="M 612 372 L 652 372 L 652 412"></path>
+    <path d="M 652 612 L 652 652 L 612 652"></path>
+    <path d="M 412 652 L 372 652 L 372 612"></path>
+  </g>
+</svg>

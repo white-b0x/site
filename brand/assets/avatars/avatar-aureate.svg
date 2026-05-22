@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="whiteb0x">
+  <title>whiteb0x — Social avatar (aureate mark)</title>
+  <desc>Mark rendered in brand aureate-300 against the brand background, with a soft breathing glow behind. The most expressive of the three avatar variants — the breathing signature implied at rest.</desc>
+
+  
+  <rect width="1024" height="1024" fill="#030508"></rect>
+
+  
+  <defs>
+    <radialGradient id="auroral" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#ffd9a0" stop-opacity="0.22"></stop>
+      <stop offset="35%" stop-color="#ffd9a0" stop-opacity="0.10"></stop>
+      <stop offset="75%" stop-color="#ffd9a0" stop-opacity="0.02"></stop>
+      <stop offset="100%" stop-color="#ffd9a0" stop-opacity="0"></stop>
+    </radialGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#auroral)"></rect>
+
+  
+  <g fill="none" stroke="#ffd9a0" stroke-width="14" stroke-linecap="square" stroke-linejoin="miter" opacity="0.5" filter="url(#softGlow)">
+    <path d="M 287 362 L 212 362 L 212 287"></path>
+    <path d="M 737 287 L 812 287 L 812 362"></path>
+    <path d="M 812 662 L 812 737 L 737 737"></path>
+    <path d="M 287 737 L 212 737 L 212 662"></path>
+  </g>
+
+  
+  <g fill="none" stroke="#e9c47a" stroke-width="11" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 287 362 L 212 362 L 212 287"></path>
+    <path d="M 737 287 L 812 287 L 812 362"></path>
+    <path d="M 812 662 L 812 737 L 737 737"></path>
+    <path d="M 287 737 L 212 737 L 212 662"></path>
+  </g>
+</svg>

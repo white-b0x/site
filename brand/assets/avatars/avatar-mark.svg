@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="whiteb0x">
+  <title>whiteb0x — Social avatar (mark only)</title>
+  <desc>Oversized registration mark on the brand background. Maximum legibility at small sizes.</desc>
+
+  
+  <rect width="1024" height="1024" fill="#030508"></rect>
+
+  
+  <g fill="none" stroke="#f5f5f5" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter">
+    
+    <path d="M 287 362 L 212 362 L 212 287"></path>
+    
+    <path d="M 737 287 L 812 287 L 812 362"></path>
+    
+    <path d="M 812 662 L 812 737 L 737 737"></path>
+    
+    <path d="M 287 737 L 212 737 L 212 662"></path>
+  </g>
+</svg>

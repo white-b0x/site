@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="whiteb0x — A Development Studio">
+  <title>whiteb0x — Avatar B1 (framed)</title>
+  <desc>Vertical lockup nested inside outer registration brackets — the same composition language used on the OG image, adapted for circular crop. Outer brackets read as quiet structure; inner mark + wordmark + tagline carry the brand.</desc>
+
+  
+  <rect width="1024" height="1024" fill="#030508"></rect>
+
+  
+  <defs>
+    <radialGradient id="b1-breathe" cx="50%" cy="60%" r="38%">
+      <stop offset="0%" stop-color="#ffd9a0" stop-opacity="0.10"></stop>
+      <stop offset="60%" stop-color="#ffd9a0" stop-opacity="0.03"></stop>
+      <stop offset="100%" stop-color="#ffd9a0" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#b1-breathe)"></rect>
+
+  
+  <g fill="none" stroke="#1a1f28" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 180 60 L 60 60 L 60 180"></path>
+    <path d="M 844 60 L 964 60 L 964 180"></path>
+    <path d="M 964 844 L 964 964 L 844 964"></path>
+    <path d="M 180 964 L 60 964 L 60 844"></path>
+  </g>
+
+  
+  <g fill="none" stroke="#d4a574" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter" opacity="0.85">
+    <path d="M 232 168 L 200 168 L 200 200"></path>
+    <path d="M 792 200 L 824 200 L 824 232"></path>
+    <path d="M 824 792 L 824 824 L 792 824"></path>
+    <path d="M 232 824 L 200 824 L 200 792"></path>
+  </g>
+
+  
+  <g fill="none" stroke="#f5f5f5" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 422 320 L 392 320 L 392 290"></path>
+    <path d="M 632 290 L 662 290 L 662 320"></path>
+    <path d="M 662 510 L 662 540 L 632 540"></path>
+    <path d="M 422 540 L 392 540 L 392 510"></path>
+  </g>
+
+  
+  <text x="512" y="700" font-family="&#39;Geist&#39;, ui-sans-serif, system-ui, sans-serif" font-size="112" font-weight="300" letter-spacing="-2.2" text-anchor="middle" fill="#f5f5f5">whiteb0x</text>
+
+  
+  <text x="512" y="762" font-family="&#39;Geist Mono&#39;, ui-monospace, &#39;SF Mono&#39;, Monaco, monospace" font-size="20" font-weight="500" letter-spacing="6" text-anchor="middle" fill="#d4a574">A DEVELOPMENT STUDIO</text>
+</svg>
