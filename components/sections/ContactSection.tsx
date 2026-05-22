@@ -51,9 +51,9 @@ export function ContactSection() {
     if (!sectionRef.current) return;
     const ctx = gsap.context(() => {
       gsap.from(sectionRef.current, {
-        y: 60,
+        y: 24,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -104,10 +104,10 @@ export function ContactSection() {
   }
 
   return (
-    <section ref={sectionRef} className="relative py-20 px-4 sm:py-32 sm:px-6">
+    <section ref={sectionRef} aria-labelledby="contact-heading" className="relative py-20 px-4 sm:py-32 sm:px-6">
       <div className="absolute inset-0 bg-gradient-to-b from-[#030508]/70 via-[#030508]/90 to-[#030508]/70" />
       <div className="relative mx-auto max-w-xl">
-        <h2 className="mb-4 text-center text-3xl font-bold tracking-tight text-white/90 md:text-4xl">
+        <h2 id="contact-heading" className="mb-4 text-center text-3xl font-medium tracking-tight text-white/90 md:text-4xl">
           Let&apos;s Build Something
         </h2>
         <p className="mb-10 text-center text-lg text-white/50">

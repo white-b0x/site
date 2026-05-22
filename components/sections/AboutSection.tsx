@@ -14,9 +14,9 @@ export function AboutSection() {
     if (!sectionRef.current) return;
     const ctx = gsap.context(() => {
       gsap.from(sectionRef.current, {
-        y: 60,
+        y: 24,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -29,11 +29,11 @@ export function AboutSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-16 px-4 sm:py-24 sm:px-6">
+    <section ref={sectionRef} aria-labelledby="about-heading" className="relative py-16 px-4 sm:py-24 sm:px-6 grid-bg-aureate">
       <div className="absolute inset-0 bg-gradient-to-b from-[#030508]/70 via-[#030508]/90 to-[#030508]/70" />
       <div className="relative mx-auto max-w-3xl text-center">
-        <GlassCard className="py-8 px-5 sm:py-12 sm:px-8">
-          <h2 className="text-3xl font-medium tracking-tight text-white/90 md:text-4xl">
+        <GlassCard framed className="py-8 px-5 sm:py-12 sm:px-8">
+          <h2 id="about-heading" className="text-3xl font-medium tracking-tight text-white/90 md:text-4xl">
             Engineering What&apos;s Next
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-white/60">
