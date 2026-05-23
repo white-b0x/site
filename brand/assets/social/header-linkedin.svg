@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" width="1584" height="396" role="img" aria-label="whiteb0x — A Development Studio">
+  <title>whiteb0x — LinkedIn Banner</title>
+
+  <defs>
+    <radialGradient id="liglow" gradientUnits="userSpaceOnUse"
+      cx="792" cy="188" r="480">
+      <stop offset="0%" stop-color="#ffd9a0" stop-opacity="0.14"/>
+      <stop offset="55%" stop-color="#ffd9a0" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#ffd9a0" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="ligrid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,217,160,0.055)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1584" height="396" fill="#030508"/>
+
+  <!-- Grid texture -->
+  <rect width="1584" height="396" fill="url(#ligrid)"/>
+
+  <!-- Aureate glow -->
+  <ellipse cx="792" cy="185" rx="560" ry="280" fill="url(#liglow)"/>
+
+  <!-- Outer corner brackets -->
+  <g fill="none" stroke="#1a1f28" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 100 25 L 25 25 L 25 100"/>
+    <path d="M 1484 25 L 1559 25 L 1559 100"/>
+    <path d="M 1484 371 L 1559 371 L 1559 296"/>
+    <path d="M 100 371 L 25 371 L 25 296"/>
+  </g>
+
+  <!-- Middle brackets — aureate -->
+  <g fill="none" stroke="#d4a574" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" opacity="0.55">
+    <path d="M 125 75 L 75 75 L 75 125"/>
+    <path d="M 1459 75 L 1509 75 L 1509 125"/>
+    <path d="M 1459 321 L 1509 321 L 1509 271"/>
+    <path d="M 125 321 L 75 321 L 75 271"/>
+  </g>
+
+  <!-- Registration mark — white, centered -->
+  <g fill="none" stroke="#f5f5f5" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 780 70 L 756 70 L 756 94"/>
+    <path d="M 804 70 L 828 70 L 828 94"/>
+    <path d="M 804 142 L 828 142 L 828 118"/>
+    <path d="M 780 142 L 756 142 L 756 118"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="792" y="238"
+    font-family="'Geist', 'Geist Sans', ui-sans-serif, system-ui, -apple-system, sans-serif"
+    font-size="70" font-weight="300" letter-spacing="-1.4"
+    text-anchor="middle" fill="#f5f5f5">whiteb0x</text>
+
+  <!-- Tagline -->
+  <text x="792" y="274"
+    font-family="'Geist Mono', 'GeistMono', ui-monospace, 'SF Mono', Monaco, monospace"
+    font-size="13" font-weight="500" letter-spacing="3.2"
+    text-anchor="middle" fill="#d4a574">A DEVELOPMENT STUDIO</text>
+</svg>

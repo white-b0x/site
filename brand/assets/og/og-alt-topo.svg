@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="whiteb0x — A Development Studio">
+  <title>whiteb0x — OG Alt 3: Topo Wireframe Background</title>
+
+  <defs>
+    <radialGradient id="t-glow" gradientUnits="userSpaceOnUse" cx="600" cy="240" r="440">
+      <stop offset="0%" stop-color="#ffd9a0" stop-opacity="0.14"/>
+      <stop offset="50%" stop-color="#ffd9a0" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#ffd9a0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#030508"/>
+
+  <!-- Aureate glow — centered slightly above middle -->
+  <ellipse cx="600" cy="240" rx="500" ry="340" fill="url(#t-glow)"/>
+
+  <!-- Topo lines — horizontal, bottom 55% of canvas, fading in then out -->
+  <g fill="none" stroke="#ffd9a0" stroke-width="1">
+    <line x1="0" y1="264" x2="1200" y2="264" opacity="0.04"/>
+    <line x1="0" y1="284" x2="1200" y2="284" opacity="0.05"/>
+    <line x1="0" y1="306" x2="1200" y2="306" opacity="0.07"/>
+    <line x1="0" y1="330" x2="1200" y2="330" opacity="0.08"/>
+    <line x1="0" y1="357" x2="1200" y2="357" opacity="0.09"/>
+    <line x1="0" y1="387" x2="1200" y2="387" opacity="0.11"/>
+    <line x1="0" y1="420" x2="1200" y2="420" opacity="0.12"/>
+    <line x1="0" y1="456" x2="1200" y2="456" opacity="0.13"/>
+    <line x1="0" y1="491" x2="1200" y2="491" opacity="0.12"/>
+    <line x1="0" y1="524" x2="1200" y2="524" opacity="0.10"/>
+    <line x1="0" y1="552" x2="1200" y2="552" opacity="0.08"/>
+    <line x1="0" y1="576" x2="1200" y2="576" opacity="0.06"/>
+    <line x1="0" y1="597" x2="1200" y2="597" opacity="0.04"/>
+    <line x1="0" y1="616" x2="1200" y2="616" opacity="0.03"/>
+  </g>
+
+  <!-- Outer corner brackets -->
+  <g fill="none" stroke="#1a1f28" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 140 35 L 35 35 L 35 140"/>
+    <path d="M 1060 35 L 1165 35 L 1165 140"/>
+    <path d="M 1060 595 L 1165 595 L 1165 490"/>
+    <path d="M 140 595 L 35 595 L 35 490"/>
+  </g>
+
+  <!-- Aureate accent brackets — single tier, faint -->
+  <g fill="none" stroke="#d4a574" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" opacity="0.45">
+    <path d="M 155 80 L 80 80 L 80 155"/>
+    <path d="M 1045 80 L 1120 80 L 1120 155"/>
+    <path d="M 1045 550 L 1120 550 L 1120 475"/>
+    <path d="M 155 550 L 80 550 L 80 475"/>
+  </g>
+
+  <!-- Registration mark — white, centered -->
+  <g fill="none" stroke="#f5f5f5" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 584 134 L 544 134 L 544 174"/>
+    <path d="M 616 134 L 656 134 L 656 174"/>
+    <path d="M 616 246 L 656 246 L 656 206"/>
+    <path d="M 584 246 L 544 246 L 544 206"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="600" y="348"
+    font-family="'Geist', 'Geist Sans', ui-sans-serif, system-ui, -apple-system, sans-serif"
+    font-size="88" font-weight="300" letter-spacing="-1.8"
+    text-anchor="middle" fill="#f5f5f5">whiteb0x</text>
+
+  <!-- Tagline -->
+  <text x="600" y="386"
+    font-family="'Geist Mono', 'GeistMono', ui-monospace, 'SF Mono', Monaco, monospace"
+    font-size="16" font-weight="500" letter-spacing="4.5"
+    text-anchor="middle" fill="#d4a574">A DEVELOPMENT STUDIO</text>
+
+  <!-- Feature dots -->
+  <text x="600" y="418"
+    font-family="'Geist', 'Geist Sans', ui-sans-serif, system-ui, sans-serif"
+    font-size="14" font-weight="400" letter-spacing="0.5"
+    text-anchor="middle" fill="rgba(245,245,245,0.30)">Web · Blockchain · Full-Stack</text>
+
+  <!-- Separator -->
+  <line x1="480" y1="444" x2="720" y2="444" stroke="rgba(255,217,160,0.12)" stroke-width="1"/>
+
+  <!-- CTA button -->
+  <rect x="450" y="460" width="300" height="48" rx="8" fill="rgba(245,245,245,0.92)"/>
+  <text x="600" y="490"
+    font-family="'Geist', 'Geist Sans', ui-sans-serif, system-ui, sans-serif"
+    font-size="15" font-weight="500" letter-spacing="0.2"
+    text-anchor="middle" fill="#030508">Let's Build Something</text>
+
+  <!-- URL -->
+  <text x="600" y="556"
+    font-family="'Geist', 'Geist Sans', ui-sans-serif, system-ui, sans-serif"
+    font-size="13" font-weight="400"
+    text-anchor="middle" fill="rgba(245,245,245,0.22)">whiteb0x.com</text>
+</svg>
