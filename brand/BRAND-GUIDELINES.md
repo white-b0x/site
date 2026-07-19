@@ -466,4 +466,4 @@ Increment minor for refinements (new variants, asset additions, scale extensions
 | [assets/favicon/](./assets/favicon/) | Favicon SVGs |
 | [assets/og/](./assets/og/) | OG and Twitter card SVGs |
 | [assets/avatars/](./assets/avatars/) | 12 social avatar SVGs (3 families) |
-| [assets/references/](./assets/references/) | Prior concepts (for context, not for use) |
+| [assets/social/](./assets/social/) | Social header and card SVGs |

@@ -27,7 +27,7 @@ The studio's landing page. Dark chrome aesthetic: metallic 3D cube, topographic 
 | 3D | React Three Fiber, drei, GLSL shaders |
 | Animation | Framer Motion, GSAP ScrollTrigger, Lenis |
 | Language | TypeScript (strict) |
-| Email | Resend |
+| Contact | Pre-filled `mailto:` — no backend |
 
 ---
 
@@ -47,20 +47,24 @@ pnpm lint       # ESLint
 
 ```
 app/                        # Next.js App Router
-  page.tsx                  # Single page (Hero → About → Contact → Footer)
-  layout.tsx                # Root layout, metadata, JSON-LD
+  page.tsx                  # Server Component shell — metadata, JSON-LD
+  PageClient.tsx            # Client entry (Hero → About → Contact → Footer)
+  layout.tsx                # Root layout, fonts, metadata
   globals.css               # Design tokens + brand animations
+  not-found.tsx             # 404
+  manifest.ts               # Web app manifest
   icon.svg                  # Favicon — registration mark
+  apple-icon.png            # Apple touch icon
   opengraph-image.tsx       # OG image (1200×630)
   twitter-image.tsx         # Twitter card (1200×675)
   sitemap.ts / robots.ts    # Crawl directives
 
 components/
   sections/                 # HeroSection, AboutSection, ContactSection, FooterSection
-  three/                    # GlassCubeScene, GlassCube, TopoBackground, CubeLighting, PostFX
+  three/                    # GlassCubeScene, GlassCube, TopoBackground, CubeLighting, ScenePostProcessing
   ui/                       # Button, GlassCard, ScrollIndicator
 
-hooks/                      # useDeviceCapability, useScrollProgress, useMediaQuery
+hooks/                      # useDeviceCapability, useScrollProgress, useMediaQuery, useReducedMotion
 public/
   llms.txt                  # AI crawler summary
 
@@ -72,6 +76,8 @@ brand/                      # Design system and brand assets
   assets/logo/              # SVG logo variants (mark, wordmark, lockups)
   assets/favicon/           # SVG favicon variants
   assets/og/                # OG image templates (SVG source)
+  assets/avatars/           # Social avatar SVGs
+  assets/social/            # Social header / card SVGs
 ```
 
 ---
