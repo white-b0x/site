@@ -20,7 +20,23 @@
 
 # misc
 .DS_Store
+
+# secrets, credentials, keys
 *.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account.json
+secrets/
+keystore/
+*.keystore
+wallet.json
+mnemonic.txt
+id_rsa
+id_rsa.*
+id_ecdsa
+id_ed25519
 
 # debug
 npm-debug.log*
