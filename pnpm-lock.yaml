@@ -30,8 +30,8 @@ importers:
         specifier: 16.2.6
         version: 16.2.6(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       postprocessing:
-        specifier: ^6.38.2
-        version: 6.38.2(three@0.182.0)
+        specifier: ^6.39.1
+        version: 6.39.1(three@0.182.0)
       react:
         specifier: 19.2.3
         version: 19.2.3
@@ -1874,10 +1874,10 @@ packages:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  postprocessing@6.38.2:
-    resolution: {integrity: sha512-7DwuT7Tkst41ZjSj287g7C9c5/D3Xx5rMgBosg0dadbUPoZD2HNzkadKPol1d2PJAoI9f+Jeh1/v9YfLzpFGVw==}
+  postprocessing@6.39.1:
+    resolution: {integrity: sha512-R2dG2zy+BAx3USl5EHw+PvnrlbT5PKnZVp3se0HCR0pWH8WQdh742yNG4YWOsq6c0bFpffk0Gd2RqPeoP/wKng==}
     peerDependencies:
-      three: '>= 0.157.0 < 0.183.0'
+      three: '>= 0.168.0 < 0.185.0'
 
   potpack@1.0.2:
     resolution: {integrity: sha512-choctRBIV9EMT9WGAZHn3V7t0Z2pMQyl0EZE6pFc/6ml3ssw7Dlf/oAOvFwjm1HVsqfQN8GfeFyJ+d8tRzqueQ==}
@@ -2704,8 +2704,8 @@ snapshots:
     dependencies:
       '@react-three/fiber': 9.5.0(@types/react@19.2.10)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(three@0.182.0)
       maath: 0.6.0(@types/three@0.182.0)(three@0.182.0)
-      n8ao: 1.10.1(postprocessing@6.38.2(three@0.182.0))(three@0.182.0)
-      postprocessing: 6.38.2(three@0.182.0)
+      n8ao: 1.10.1(postprocessing@6.39.1(three@0.182.0))(three@0.182.0)
+      postprocessing: 6.39.1(three@0.182.0)
       react: 19.2.3
       three: 0.182.0
     transitivePeerDependencies:
@@ -4035,9 +4035,9 @@ snapshots:
 
   ms@2.1.3: {}
 
-  n8ao@1.10.1(postprocessing@6.38.2(three@0.182.0))(three@0.182.0):
+  n8ao@1.10.1(postprocessing@6.39.1(three@0.182.0))(three@0.182.0):
     dependencies:
-      postprocessing: 6.38.2(three@0.182.0)
+      postprocessing: 6.39.1(three@0.182.0)
       three: 0.182.0
 
   nanoid@3.3.11: {}
@@ -4167,7 +4167,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  postprocessing@6.38.2(three@0.182.0):
+  postprocessing@6.39.1(three@0.182.0):
     dependencies:
       three: 0.182.0
 
