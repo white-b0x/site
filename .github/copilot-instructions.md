@@ -1,11 +1,17 @@
 # GitHub Copilot Instructions: whiteb0x.com
 
-**[`AGENTS.md`](../AGENTS.md) at the repository root is the authoritative agent
-contract.** Copilot reads it alongside this file. Read it first — it carries the
-full stack, structure, architecture, performance budgets, and boundaries. Where
-the two disagree, `AGENTS.md` wins and this file is the one to fix.
+This file is self-contained on purpose. Only some Copilot surfaces also read
+[`AGENTS.md`](../AGENTS.md) — VS Code Chat, the cloud agent, code review and the
+CLI do; Chat on github.com, JetBrains, Eclipse, Xcode and Visual Studio do not.
+On those, this file is the only instruction Copilot gets, so everything that
+matters is restated here.
 
-This file holds the quick summary plus the Copilot-specific workflow notes.
+Where both are read, both are supplied to the model — neither is dropped. So the
+rule is **keep the two in agreement**, not "one overrides the other." If they
+ever conflict, fix the conflict rather than relying on precedence: it differs by
+surface, and github.com actually ranks *this* file above `AGENTS.md`.
+
+`AGENTS.md` carries the same contract with more depth on architecture.
 
 ## Project
 
@@ -33,6 +39,17 @@ pnpm typecheck    # tsc --noEmit
 ```
 
 Never suggest Node 22, Next.js 14/15, or React 18. There is no `pnpm test`.
+
+## Performance budgets — hard constraints
+
+This is a heavy WebGL page. LCP < 2.5s · INP < 200ms · CLS < 0.1 · 60fps desktop ·
+30fps mobile floor. Quality tiers come from `useDeviceCapability`: high (desktop,
+80 topo segments, full post-processing) · medium (tablet, 60) · low (mobile, 40,
+post-processing off, DPR capped to 1). `PerformanceMonitor` and `AdaptiveDpr`
+degrade further at runtime.
+
+Adding geometry, lights, or post-processing without checking the mobile tier is
+the most likely way to regress this site.
 
 ## Key rules
 
